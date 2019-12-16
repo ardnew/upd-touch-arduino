@@ -13,6 +13,7 @@
 
 #include <libstusb4500.h>
 
+#include "ili9341.h"
 #include "neopixel.h"
 #include "global.h"
 
@@ -34,6 +35,7 @@
 
 // -------------------------------------------------------- private variables --
 
+ili9341_t *screen;
 neopixel_t *pixel;
 stusb4500_device_t *usbpd;
 
@@ -57,6 +59,7 @@ void setup()
 
 void loop()
 {
+  ili9341_draw(screen);
   neopixel_update(pixel);
   stusb4500_process_events(usbpd);
 }

@@ -16,7 +16,7 @@
 
 // ------------------------------------------------------------------ defines --
 
-#define __WAIT_FOR_SERIAL__
+//#define __WAIT_FOR_SERIAL__
 
 // Grand Central M4
 #define __GPIO_NEOPIXEL_PIN__ 88
@@ -24,18 +24,18 @@
 // TFT / Touchscreen
 #define __GPIO_TFT_VCC_PIN__    /* 3v3 */
 #define __GPIO_TFT_GND_PIN__    /* GND */
-#define __GPIO_TFT_CS_PIN__     24
-#define __GPIO_TFT_RST_PIN__    22
-#define __GPIO_TFT_DC_PIN__     26
+#define __GPIO_TFT_CS_PIN__      9
+#define __GPIO_TFT_RST_PIN__    10
+#define __GPIO_TFT_DC_PIN__      7
 #define __GPIO_TFT_MOSI_PIN__   51
 #define __GPIO_TFT_SCK_PIN__    52
 #define __GPIO_TFT_LED_PIN__    /* 3v3 */
 #define __GPIO_TFT_MISO_PIN__   50
 #define __GPIO_TOUCH_CLK_PIN__  52
-#define __GPIO_TOUCH_CS_PIN__   25
+#define __GPIO_TOUCH_CS_PIN__    8
 #define __GPIO_TOUCH_MOSI_PIN__ 51
 #define __GPIO_TOUCH_MISO_PIN__ 50
-#define __GPIO_TOUCH_IRQ_PIN__  23
+#define __GPIO_TOUCH_IRQ_PIN__   6
 // USB PD controller
 #define __GPIO_USBPD_GND_PIN__   /* GND */
 #define __GPIO_USBPD_SCL_PIN__   21

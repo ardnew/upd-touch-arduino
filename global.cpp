@@ -13,9 +13,13 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+#include <Adafruit_ILI9341.h>
+#include <XPT2046_Touchscreen.h>
 #include <Arduino.h>
 
-#include "libstusb4500.h"
+#include <libstusb4500.h>
+
+#include "ili9341.h"
 #include "neopixel.h"
 #include "global.h"
 
@@ -42,6 +46,7 @@ neopixel_status_info_t;
 
 // ------------------------------------------------------- exported variables --
 
+extern ili9341_t *screen;
 extern neopixel_t *pixel;
 extern stusb4500_device_t *usbpd;
 
@@ -68,6 +73,9 @@ extern "C" {
 void touch_interrupt();
 void usbpd_attach();
 void usbpd_alert();
+
+void touch_begin(ili9341_t *tft);
+void touch_end(ili9341_t *tft);
 
 void update_pixel(neopixel_t *pix, neopixel_status_info_t info);
 
@@ -130,6 +138,21 @@ void init_peripherals()
   Wire.setClock(__STUSB4500_I2C_CLOCK_FREQUENCY__);
 
   // --
+  // ILI9341 (TFT touch screen)
+  screen = ili9341_new(
+      new Adafruit_ILI9341(
+          __GPIO_TFT_CS_PIN__, __GPIO_TFT_DC_PIN__, __GPIO_TFT_MOSI_PIN__,
+          __GPIO_TFT_SCK_PIN__, __GPIO_TFT_RST_PIN__, __GPIO_TFT_MISO_PIN__),
+      new XPT2046_Touchscreen(
+          __GPIO_TOUCH_CS_PIN__, __GPIO_TOUCH_IRQ_PIN__),
+      isoPortrait,
+      __GPIO_TOUCH_IRQ_PIN__,
+      150, 325, 3800, 4000);
+
+  ili9341_set_touch_pressed_begin(screen, touch_begin);
+  ili9341_set_touch_pressed_end(screen, touch_end);
+
+  // --
   // Neopixel (on-board)
   pixel = neopixel_new(__GPIO_NEOPIXEL_PIN__,
       nmPulse, nsShow, STATUS_INFO_COLOR[siInitializing].color, 10, 25);
@@ -181,7 +204,7 @@ void info(info_level_t level, const char *fmt, ...)
 
 void touch_interrupt()
 {
-  info(ilInfo, "touched!");
+  ili9341_touch_interrupt(screen);
 }
 
 void usbpd_attach()
@@ -192,6 +215,16 @@ void usbpd_attach()
 void usbpd_alert()
 {
   stusb4500_alert(usbpd);
+}
+
+void touch_begin(ili9341_t *tft)
+{
+  info(ilInfo, "touch began\n");
+}
+
+void touch_end(ili9341_t *tft)
+{
+  info(ilInfo, "touch ended\n");
 }
 
 void update_pixel(neopixel_t *pix, neopixel_status_info_t info)
