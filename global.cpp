@@ -130,7 +130,7 @@ void init_peripherals()
   // USB serial (debugging and general info)
   Serial.begin(__SERIAL_BAUD__);
 
-  info(ilInfo, "initializing ...\n");
+  info(ilInfo, "initializing system resources ...\n");
 
   // --
   // I2C (bus master)
@@ -169,14 +169,16 @@ void init_peripherals()
   stusb4500_set_source_capabilities_request_end(usbpd, capabilities_request_end);
   stusb4500_set_source_capabilities_received(usbpd, capabilities_received);
 
-  info(ilInfo, "initialization complete\n");
-
   // --
+
+  info(ilInfo, "resource initialization complete, initializing STUSB4500 ...\n");
 
   stusb4500_device_init(usbpd);
   delay(1000);
-  stusb4500_set_power(usbpd, 9000, 3000);
+  info(ilInfo, "done, setting power profile ...\n");
+  stusb4500_set_power(usbpd, 5000, 3000);
   delay(1000);
+  info(ilInfo, "done, verifying requested power profile ...\n");
   stusb4500_pdo_description_t req = stusb4500_power_requested(usbpd);
   if (__STUSB4500_NVM_INVALID_PDO_INDEX__ != req.number) {
     info(ilInfo, "requested capability: (%d) %u mV, %u mA, (%u mA MAX)\n",
@@ -185,6 +187,7 @@ void init_peripherals()
   else {
     info(ilWarn, "no capability requested!");
   }
+  info(ilInfo, "STUSB4500 initialization complete, entering runtime ...\n");
 }
 
 void info(info_level_t level, const char *fmt, ...)
