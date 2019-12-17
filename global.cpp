@@ -27,7 +27,7 @@
 
 #define __SERIAL_BAUD__ 115200
 
-#define __INFO_LENGTH_MAX__ 256
+#define __INFO_LENGTH_MAX__   256
 
 // ----------------------------------------------------------- private macros --
 
@@ -136,6 +136,7 @@ void init_peripherals()
   // I2C (bus master)
   Wire.begin();
   Wire.setClock(__STUSB4500_I2C_CLOCK_FREQUENCY__);
+  //i2c->setTimeout(...);
 
   // --
   // ILI9341 (TFT touch screen)
@@ -176,7 +177,7 @@ void init_peripherals()
   stusb4500_device_init(usbpd);
   delay(1000);
   info(ilInfo, "done, setting power profile ...\n");
-  stusb4500_set_power(usbpd, 5000, 3000);
+  stusb4500_set_power(usbpd, 9000, 3000);
   delay(1000);
   info(ilInfo, "done, verifying requested power profile ...\n");
   stusb4500_pdo_description_t req = stusb4500_power_requested(usbpd);
@@ -201,22 +202,28 @@ void info(info_level_t level, const char *fmt, ...)
 
   Serial.print(DEBUG_LEVEL_PREFIX[level]);
   Serial.print(buff);
+
+  if (ilError == level)
+    { while (1) { delay(1000); } }
 }
 
 // -------------------------------------------------------- private functions --
 
 void touch_interrupt()
 {
+  info(ilInfo, "touch IRQ\n");
   ili9341_touch_interrupt(screen);
 }
 
 void usbpd_attach()
 {
+  info(ilInfo, "attach IRQ\n");
   stusb4500_attach(usbpd);
 }
 
 void usbpd_alert()
 {
+  info(ilInfo, "alert IRQ\n");
   stusb4500_alert(usbpd);
 }
 

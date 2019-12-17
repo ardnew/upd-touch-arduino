@@ -52,7 +52,7 @@ uint8_t next_wheel(neopixel_color_t *color, uint8_t pos);
 // ------------------------------------------------------- exported functions --
 
 neopixel_t *neopixel_new(uint16_t pin, neopixel_mode_t mode, neopixel_show_t show,
-    neopixel_color_t color, uint8_t bright, uint32_t delay)
+    neopixel_color_t color, uint8_t bright, uint32_t wait)
 {
   info(ilInfo, "creating neopixel ...\n");
 
@@ -65,7 +65,7 @@ neopixel_t *neopixel_new(uint16_t pin, neopixel_mode_t mode, neopixel_show_t sho
     np->show   = show;
     np->color  = color;
     np->bright = bright;
-    np->delay  = delay;
+    np->wait   = wait;
     np->last   = 0U;
     np->pulse  = color;
     np->wheel  = color;
@@ -96,7 +96,7 @@ void neopixel_update(neopixel_t *np)
     { return; }
 
   uint32_t curr = millis();
-  if (curr - np->last < np->delay)
+  if (curr - np->last < np->wait)
     { return; }
 
   np->last = curr;
@@ -128,7 +128,8 @@ void neopixel_update(neopixel_t *np)
   if (0U == np->change)
     { return; }
 
-  //info(ilInfo, "updating pixel %i\n", 0);
+  //info(ilInfo, "updating pixel %i {%02x,%02x,%02x}\n",
+  //    0, color.red, color.green, color.blue);
   np->pixel->setPixelColor(0,
       np->pixel->Color(
           color_clip(color.red),
@@ -184,7 +185,7 @@ void neopixel_set_color(neopixel_t *np, neopixel_color_t color, uint8_t bright)
   neopixel_update(np);
 }
 
-void neopixel_set_pulse(neopixel_t *np, neopixel_color_t color, uint8_t bright, uint32_t delay)
+void neopixel_set_pulse(neopixel_t *np, neopixel_color_t color, uint8_t bright, uint32_t wait)
 {
   if (NULL == np)
     { return; }
@@ -196,7 +197,7 @@ void neopixel_set_pulse(neopixel_t *np, neopixel_color_t color, uint8_t bright, 
     np->chmod  = 1U;
   }
   np->show = nsShow;
-  np->delay = delay;
+  np->wait = wait;
 
   if (bright != np->bright) {
     np->bright = bright;
@@ -205,7 +206,7 @@ void neopixel_set_pulse(neopixel_t *np, neopixel_color_t color, uint8_t bright, 
   neopixel_update(np);
 }
 
-void neopixel_set_fabulous(neopixel_t *np, uint8_t bright, uint32_t delay)
+void neopixel_set_fabulous(neopixel_t *np, uint8_t bright, uint32_t wait)
 {
   if (NULL == np)
     { return; }
@@ -216,7 +217,7 @@ void neopixel_set_fabulous(neopixel_t *np, uint8_t bright, uint32_t delay)
     np->chmod  = 1U;
   }
   np->show = nsShow;
-  np->delay = delay;
+  np->wait = wait;
 
   if (bright != np->bright) {
     np->bright = bright;

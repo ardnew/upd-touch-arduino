@@ -16,7 +16,7 @@
 
 // ------------------------------------------------------------------ defines --
 
-#define __WAIT_FOR_SERIAL__
+//#define __WAIT_FOR_SERIAL__
 
 // Grand Central M4
 #define __GPIO_NEOPIXEL_PIN__ 8

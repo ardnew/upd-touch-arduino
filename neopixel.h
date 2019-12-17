@@ -59,7 +59,7 @@ typedef struct
   neopixel_show_t    show;   // whether or not neopixel is showing
   neopixel_color_t   color;  // current color of pixel
   uint8_t            bright; // total brightness (0x00 - 0xFF)
-  uint32_t           delay;  // time to wait between color updates
+  uint32_t           wait;   // time to wait between color updates
   uint32_t           last;   // time of last color update
   neopixel_color_t   pulse;  // current pulse color
   neopixel_color_t   wheel;  // current wheel color
@@ -79,14 +79,14 @@ extern "C" {
 #endif
 
 neopixel_t *neopixel_new(uint16_t pin, neopixel_mode_t mode, neopixel_show_t show,
-    neopixel_color_t color, uint8_t bright, uint32_t delay);
+    neopixel_color_t color, uint8_t bright, uint32_t wait);
 
 void neopixel_update(neopixel_t *np);
 
 void neopixel_set_show(neopixel_t *np, neopixel_show_t show);
 void neopixel_set_color(neopixel_t *np, neopixel_color_t color, uint8_t bright);
-void neopixel_set_pulse(neopixel_t *np, neopixel_color_t color, uint8_t bright, uint32_t delay);
-void neopixel_set_fabulous(neopixel_t *np, uint8_t bright, uint32_t delay);
+void neopixel_set_pulse(neopixel_t *np, neopixel_color_t color, uint8_t bright, uint32_t wait);
+void neopixel_set_fabulous(neopixel_t *np, uint8_t bright, uint32_t wait);
 
 #ifdef __cplusplus
 }
