@@ -112,8 +112,8 @@ void init_gpio()
   pinMode(__GPIO_USBPD_ATCH_PIN__, INPUT_PULLUP);
   pinMode(__GPIO_USBPD_ALRT_PIN__, INPUT_PULLUP);
 
-  attachInterrupt(
-      digitalPinToInterrupt(__GPIO_TOUCH_IRQ_PIN__), touch_interrupt, CHANGE);
+  //attachInterrupt(
+  //    digitalPinToInterrupt(__GPIO_TOUCH_IRQ_PIN__), touch_interrupt, CHANGE);
   attachInterrupt(
       digitalPinToInterrupt(__GPIO_USBPD_ATCH_PIN__), usbpd_attach, CHANGE);
   attachInterrupt(
@@ -131,6 +131,11 @@ void init_peripherals()
   Serial.begin(__SERIAL_BAUD__);
 
   info(ilInfo, "initializing ...\n");
+
+  // --
+  // Neopixel (on-board)
+  pixel = neopixel_new(__GPIO_NEOPIXEL_PIN__,
+      nmPulse, nsShow, STATUS_INFO_COLOR[siInitializing].color, 10, 25);
 
   // --
   // I2C (bus master)
@@ -151,11 +156,6 @@ void init_peripherals()
 
   ili9341_set_touch_pressed_begin(screen, touch_begin);
   ili9341_set_touch_pressed_end(screen, touch_end);
-
-  // --
-  // Neopixel (on-board)
-  pixel = neopixel_new(__GPIO_NEOPIXEL_PIN__,
-      nmPulse, nsShow, STATUS_INFO_COLOR[siInitializing].color, 10, 25);
 
   // --
   // STUSB4500 (zoinks!)
@@ -201,11 +201,6 @@ void info(info_level_t level, const char *fmt, ...)
 }
 
 // -------------------------------------------------------- private functions --
-
-void touch_interrupt()
-{
-  ili9341_touch_interrupt(screen);
-}
 
 void usbpd_attach()
 {
