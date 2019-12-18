@@ -20,7 +20,7 @@
 #include <libstusb4500.h>
 
 #include "ili9341.h"
-#include "neopixel.h"
+//#include "neopixel.h"
 #include "global.h"
 
 // ---------------------------------------------------------- private defines --
@@ -35,19 +35,19 @@
 
 // ------------------------------------------------------------ private types --
 
-typedef struct
-{
-  neopixel_mode_t  mode;
-  neopixel_color_t color;
-  uint8_t          bright;
-  uint32_t         delay;
-}
-neopixel_status_info_t;
+//typedef struct
+//{
+//  neopixel_mode_t  mode;
+//  neopixel_color_t color;
+//  uint8_t          bright;
+//  uint32_t         delay;
+//}
+//neopixel_status_info_t;
 
 // ------------------------------------------------------- exported variables --
 
 extern ili9341_t *screen;
-extern neopixel_t *pixel;
+//extern neopixel_t *pixel;
 extern stusb4500_device_t *usbpd;
 
 // -------------------------------------------------------- private variables --
@@ -56,13 +56,13 @@ const char *DEBUG_LEVEL_PREFIX[ilCOUNT] = {
   "[ ] ", "[*] ", "[!] "
 };
 
-const neopixel_status_info_t STATUS_INFO_COLOR[siCOUNT] = {
-  /* siInitializing          */ { .mode = nmFixed,    .color = RGB(0x00, 0xFF, 0xFF), .bright =  30U, .delay =  0U }, // fixed teal mid
-  /* siIdleDisconnected      */ { .mode = nmPulse,    .color = RGB(0xFF, 0x00, 0x00), .bright =  10U, .delay = 50U }, // pulse red dim slow
-  /* siIdleConnected         */ { .mode = nmFabulous, .color = RGB(0x00, 0x00, 0x00), .bright =  20U, .delay = 10U }, // fabulous dim med
-  /* siIdleConnectedNoSource */ { .mode = nmPulse,    .color = RGB(0xFF, 0x00, 0xFF), .bright =  10U, .delay = 50U }, // pulse purple dim slow
-  /* siIdentifyingSource     */ { .mode = nmFixed,    .color = RGB(0x00, 0x00, 0xFF), .bright = 100U, .delay =  0U }  // fixed blue bright
-};
+//const neopixel_status_info_t STATUS_INFO_COLOR[siCOUNT] = {
+//  /* siInitializing          */ { .mode = nmFixed,    .color = RGB(0x00, 0xFF, 0xFF), .bright =  30U, .delay =  0U }, // fixed teal mid
+//  /* siIdleDisconnected      */ { .mode = nmPulse,    .color = RGB(0xFF, 0x00, 0x00), .bright =  10U, .delay = 50U }, // pulse red dim slow
+//  /* siIdleConnected         */ { .mode = nmFabulous, .color = RGB(0x00, 0x00, 0x00), .bright =  20U, .delay = 10U }, // fabulous dim med
+//  /* siIdleConnectedNoSource */ { .mode = nmPulse,    .color = RGB(0xFF, 0x00, 0xFF), .bright =  10U, .delay = 50U }, // pulse purple dim slow
+//  /* siIdentifyingSource     */ { .mode = nmFixed,    .color = RGB(0x00, 0x00, 0xFF), .bright = 100U, .delay =  0U }  // fixed blue bright
+//};
 
 // ---------------------------------------------- private function prototypes --
 
@@ -77,7 +77,7 @@ void usbpd_alert();
 void touch_begin(ili9341_t *tft);
 void touch_end(ili9341_t *tft);
 
-void update_pixel(neopixel_t *pix, neopixel_status_info_t info);
+//void update_pixel(neopixel_t *pix, neopixel_status_info_t info);
 
 void cable_attached(stusb4500_device_t *usb);
 void cable_detached(stusb4500_device_t *usb);
@@ -134,8 +134,8 @@ void init_peripherals()
 
   // --
   // Neopixel (on-board)
-  pixel = neopixel_new(__GPIO_NEOPIXEL_PIN__,
-      nmPulse, nsShow, STATUS_INFO_COLOR[siInitializing].color, 10, 25);
+  //pixel = neopixel_new(__GPIO_NEOPIXEL_PIN__,
+  //    nmPulse, nsShow, STATUS_INFO_COLOR[siInitializing].color, 10, 25);
 
   // --
   // I2C (bus master)
@@ -222,31 +222,31 @@ void touch_end(ili9341_t *tft)
   info(ilInfo, "touch ended\n");
 }
 
-void update_pixel(neopixel_t *pix, neopixel_status_info_t info)
-{
-  switch (info.mode) {
-    case nmFixed:
-      neopixel_set_color(pix, info.color, info.bright);
-      break;
-
-    case nmPulse:
-      neopixel_set_pulse(pix, info.color, info.bright, info.delay);
-      break;
-
-    case nmFabulous:
-      neopixel_set_fabulous(pix, info.bright, info.delay);
-      break;
-
-    default:
-      break;
-  }
-  neopixel_update(pix);
-}
+//void update_pixel(neopixel_t *pix, neopixel_status_info_t info)
+//{
+//  switch (info.mode) {
+//    case nmFixed:
+//      neopixel_set_color(pix, info.color, info.bright);
+//      break;
+//
+//    case nmPulse:
+//      neopixel_set_pulse(pix, info.color, info.bright, info.delay);
+//      break;
+//
+//    case nmFabulous:
+//      neopixel_set_fabulous(pix, info.bright, info.delay);
+//      break;
+//
+//    default:
+//      break;
+//  }
+//  neopixel_update(pix);
+//}
 
 void cable_attached(stusb4500_device_t *usb)
 {
   info(ilInfo, "cable attached\n");
-  update_pixel(pixel, STATUS_INFO_COLOR[siIdentifyingSource]);
+  //update_pixel(pixel, STATUS_INFO_COLOR[siIdentifyingSource]);
   stusb4500_get_source_capabilities(usb);
   delay(1000);
   stusb4500_select_power_usb_default(usb);
@@ -264,13 +264,13 @@ void cable_attached(stusb4500_device_t *usb)
 void cable_detached(stusb4500_device_t *usb)
 {
   info(ilInfo, "cable detached\n");
-  update_pixel(pixel, STATUS_INFO_COLOR[siIdleDisconnected]);
+  //update_pixel(pixel, STATUS_INFO_COLOR[siIdleDisconnected]);
 }
 
 void capabilities_request_begin(stusb4500_device_t *usb)
 {
   info(ilInfo, "capabilities request begin\n");
-  update_pixel(pixel, STATUS_INFO_COLOR[siIdentifyingSource]);
+  //update_pixel(pixel, STATUS_INFO_COLOR[siIdentifyingSource]);
 }
 
 void capabilities_request_end(stusb4500_device_t *usb)
@@ -279,7 +279,7 @@ void capabilities_request_end(stusb4500_device_t *usb)
   if (0U == usb->usbpd_status.pdo_src_count) {
     // no sources found
     info(ilWarn, "no capabilities found\n");
-    update_pixel(pixel, STATUS_INFO_COLOR[siIdleConnectedNoSource]);
+    //update_pixel(pixel, STATUS_INFO_COLOR[siIdleConnectedNoSource]);
   }
   // else {
   //   // sources found
@@ -290,7 +290,7 @@ void capabilities_request_end(stusb4500_device_t *usb)
 void capabilities_received(stusb4500_device_t *usb)
 {
   info(ilInfo, "capabilities received\n");
-  update_pixel(pixel, STATUS_INFO_COLOR[siIdleConnected]);
+  //update_pixel(pixel, STATUS_INFO_COLOR[siIdleConnected]);
 
   char pdo_str[32];
   float volts;
