@@ -45,17 +45,26 @@ typedef struct
 }
 ili9341_two_dimension_t;
 
+typedef enum
+{
+  ipcNONE = -1,
+  ipcNotContained, // = 0
+  ipcContained,    // = 1
+  ipcCOUNT         // = 2
+}
+ili9341_point_contained_t;
+
 typedef uint16_t ili9341_color_t;
 
 typedef enum
 {
   // orientation is based on position of board pins when looking at the screen
   isoNONE                     = -1,
-  isoDown,   isoPortrait      = isoDown,  // = 0
-  isoRight,  isoLandscape     = isoRight, // = 1
-  isoUp,     isoPortraitFlip  = isoUp,    // = 2
-  isoLeft,   isoLandscapeFlip = isoLeft,  // = 3
-  isoCOUNT                                // = 4
+  isoBottom, isoPortrait      = isoBottom, // = 0
+  isoRight,  isoLandscape     = isoRight,  // = 1
+  isoTop,    isoPortraitFlip  = isoTop,    // = 2
+  isoLeft,   isoLandscapeFlip = isoLeft,   // = 3
+  isoCOUNT                                 // = 4
 }
 ili9341_screen_orientation_t;
 
@@ -136,13 +145,22 @@ ili9341_button_t *ili9341_button_new(
     ili9341_button_callback_t touch_down, ili9341_button_callback_t touch_up);
 
 void ili9341_draw(ili9341_t *dev);
-void ili9341_button_draw(ili9341_button_t *button, ili9341_touch_pressed_t pressed);
+void ili9341_button_draw(
+    ili9341_button_t *button,
+    ili9341_touch_pressed_t pressed,
+    ili9341_two_dimension_t position, uint8_t pressure);
 
 ili9341_touch_pressed_t ili9341_touch_pressed(ili9341_t *dev,
     ili9341_two_dimension_t *pos, uint8_t *pressure);
 
 void ili9341_set_touch_pressed_begin(ili9341_t *dev, ili9341_touch_callback_t callback);
 void ili9341_set_touch_pressed_end(ili9341_t *dev, ili9341_touch_callback_t callback);
+
+void ili9341_add_source_capability(
+    ili9341_t *dev, uint8_t pdo_number,
+    uint16_t voltage_mV, uint16_t current_mA, uint16_t current_max_mA,
+    ili9341_button_callback_t touch_down, ili9341_button_callback_t touch_up);
+void ili9341_remove_all_source_capabilities(ili9341_t *dev);
 
 #ifdef __cplusplus
 }

@@ -130,9 +130,9 @@ void init_peripherals()
           __GPIO_TFT_CS_PIN__, __GPIO_TFT_DC_PIN__),
       new XPT2046_Touchscreen(
           __GPIO_TOUCH_CS_PIN__, __GPIO_TOUCH_IRQ_PIN__),
-      isoPortrait,
+      isoTop,
       __GPIO_TOUCH_IRQ_PIN__,
-      225, 325, 3800, 4000);
+      360, 100, 3920, 3560);
 
   ili9341_set_touch_pressed_begin(screen, touch_begin);
   ili9341_set_touch_pressed_end(screen, touch_end);
@@ -209,6 +209,7 @@ void cable_attached(stusb4500_device_t *usb)
 void cable_detached(stusb4500_device_t *usb)
 {
   info(ilInfo, "cable detached\n");
+  ili9341_remove_all_source_capabilities(screen);
 }
 
 void capabilities_request_begin(stusb4500_device_t *usb)
@@ -225,18 +226,22 @@ void capabilities_received(stusb4500_device_t *usb)
 {
   info(ilInfo, "capabilities received\n");
 
-  char pdo_str[32];
-  float volts;
-  float amps;
-  uint16_t watts;
+  char pdo_str[128];
+  uint32_t volts;
+  uint32_t amps;
+  uint32_t watts;
 
   for (uint8_t i = 0; i < usb->usbpd_status.pdo_src_count; ++i) {
 
-    volts = (float)(usb->usbpd_status.pdo_src[i].fix.Voltage) / 20.0F;
-    amps  = (float)(usb->usbpd_status.pdo_src[i].fix.Max_Operating_Current) / 100.0F;
-    watts = (uint16_t)(volts * amps);
+    volts = usb->usbpd_status.pdo_src[i].fix.Voltage * 50U;
+    amps  = usb->usbpd_status.pdo_src[i].fix.Max_Operating_Current * 10U;
+    watts = (uint32_t)((float)volts / 1000.0F * (float)amps / 1000.0F);
 
-    snprintf(pdo_str, 32, "(%u) %4.1fV %4.1fA %2uW", i + 1, volts, amps, watts);
+    snprintf(pdo_str, 128, " - [%u] %2lu mV, %1lu mA (%3lu W)",
+        i + 1, volts, amps, watts);
+
+    ili9341_add_source_capability(
+        screen, i + 1, volts, amps, amps, NULL, NULL);
 
     info(ilInfo, "%s\n", pdo_str);
   }
