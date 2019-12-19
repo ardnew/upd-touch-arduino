@@ -12,7 +12,7 @@
 
 // ----------------------------------------------------------------- includes --
 
-#include <Adafruit_ILI9341.h>
+#include <ILI9341_t3.h>
 #include <XPT2046_Touchscreen.h>
 #include <SPI.h>
 
@@ -97,23 +97,6 @@ typedef enum
 }
 ili9341_status_t;
 
-struct ili9341
-{
-  Adafruit_ILI9341    *tft;
-  XPT2046_Touchscreen *touch;
-
-  ili9341_screen_orientation_t orientation;
-  ili9341_two_dimension_t      screen_size;
-
-  uint16_t touch_interrupt_pin;
-  ili9341_two_dimension_t touch_coordinate_min;
-  ili9341_two_dimension_t touch_coordinate_max;
-
-  volatile ili9341_touch_pressed_t touch_pressed;
-  ili9341_touch_callback_t touch_pressed_begin;
-  ili9341_touch_callback_t touch_pressed_end;
-};
-
 // ------------------------------------------------------- exported variables --
 
 /* nothing */
@@ -125,7 +108,7 @@ extern "C" {
 #endif
 
 ili9341_t *ili9341_new(
-    Adafruit_ILI9341    *tft,
+    ILI9341_t3          *tft,
     XPT2046_Touchscreen *touch,
     ili9341_screen_orientation_t orientation,
     uint16_t touch_interrupt_pin,

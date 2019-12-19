@@ -9,12 +9,14 @@
 
 // ----------------------------------------------------------------- includes --
 
+#include <font_DroidSansMono.h>
+
 #include "ili9341.h"
 #include "global.h"
 
 // ---------------------------------------------------------- private defines --
 
-/* nothing */
+#define __SCROLL_TOP__ 120
 
 // ----------------------------------------------------------- private macros --
 
@@ -22,7 +24,44 @@
 
 // ------------------------------------------------------------ private types --
 
-/* nothing */
+typedef uint8_t ili9341_touch_pressure_t;
+
+typedef enum
+{
+  itcNONE = -1,
+  itcDidNotChange, // = 0
+  itcDidChange,    // = 1
+  itcCOUNT         // = 2
+}
+ili9341_touch_changed_t;
+
+typedef struct
+{
+  ili9341_touch_pressed_t  pressed;
+  ili9341_two_dimension_t  position;
+  ili9341_touch_pressure_t pressure;
+  ili9341_touch_changed_t  changed;
+}
+ili9341_touch_status_t;
+
+struct ili9341
+{
+  ILI9341_t3          *tft;
+  XPT2046_Touchscreen *touch;
+
+  ili9341_screen_orientation_t orientation;
+  ili9341_two_dimension_t      screen_size;
+
+  uint16_t bg_color;
+
+  uint16_t touch_interrupt_pin;
+  ili9341_two_dimension_t touch_coordinate_min;
+  ili9341_two_dimension_t touch_coordinate_max;
+
+  volatile ili9341_touch_pressed_t touch_pressed;
+  ili9341_touch_callback_t touch_pressed_begin;
+  ili9341_touch_callback_t touch_pressed_end;
+};
 
 // ------------------------------------------------------- exported variables --
 
@@ -36,11 +75,14 @@
 
 static ili9341_two_dimension_t ili9341_screen_size(
     ili9341_screen_orientation_t orientation);
+static void ili9341_init_scroll_box(ili9341_t *dev, uint16_t top, uint8_t text_size);
+
+static ili9341_touch_status_t ili9341_update_touch_status(ili9341_t *dev);
 
 // ------------------------------------------------------- exported functions --
 
 ili9341_t *ili9341_new(
-    Adafruit_ILI9341    *tft,
+    ILI9341_t3          *tft,
     XPT2046_Touchscreen *touch,
     ili9341_screen_orientation_t orientation,
     uint16_t touch_interrupt_pin,
@@ -66,6 +108,8 @@ ili9341_t *ili9341_new(
         dev->orientation = orientation;
         dev->screen_size = ili9341_screen_size(orientation);
 
+        dev->bg_color = ILI9341_BLACK;
+
         dev->touch_interrupt_pin = touch_interrupt_pin;
         dev->touch_coordinate_min = (ili9341_two_dimension_t){
             {touch_coordinate_min_x},
@@ -80,9 +124,16 @@ ili9341_t *ili9341_new(
         dev->touch_pressed_begin = NULL;
         dev->touch_pressed_end   = NULL;
 
-
         dev->tft->begin();
-        dev->tft->fillScreen(ILI9341_BLACK);
+        dev->tft->setRotation(orientation);
+        dev->tft->setTextWrap(0U); // manually handle wrapping if needed
+        dev->tft->fillScreen(dev->bg_color);
+        dev->tft->setFont(DroidSansMono_10);
+        dev->tft->setTextSize(1U);
+
+        dev->tft->setCursor(0U, 10U);
+        dev->tft->printf("initializing (%u)\nfontCapHeight = %u\nfontLineSpace = %u\nfontGap = %u\n",
+            millis(), dev->tft->fontCapHeight(), dev->tft->fontLineSpace(), dev->tft->fontGap());
 
         dev->touch->begin();
       }
@@ -97,38 +148,7 @@ void ili9341_draw(ili9341_t *dev)
   if (NULL == dev)
     { return; }
 
-
-  // read the new/incoming state of the touch screen
-  ili9341_two_dimension_t pos;
-  uint8_t pressure;
-  ili9341_touch_pressed_t pressed = ili9341_touch_pressed(dev, &pos, &pressure);
-
-  // switch path based on existing/prior state of the touch screen
-  switch (dev->touch_pressed) {
-    case itpNotPressed:
-      if (itpPressed == pressed) {
-        // state change, start of press
-        if (NULL != dev->touch_pressed_begin)
-          { dev->touch_pressed_begin(dev); }
-      }
-      break;
-
-    case itpPressed:
-      if (itpNotPressed == pressed) {
-        // state change, end of press
-        if (NULL != dev->touch_pressed_end)
-          { dev->touch_pressed_end(dev); }
-      }
-      break;
-
-    default:
-      break;
-  }
-
-  // update the internal state with current state of touch screen
-  if (pressed != dev->touch_pressed) {
-    dev->touch_pressed = pressed;
-  }
+  ili9341_update_touch_status(dev);
 }
 
 ili9341_touch_pressed_t ili9341_touch_pressed(ili9341_t *dev,
@@ -182,5 +202,45 @@ static ili9341_two_dimension_t ili9341_screen_size(
       return (ili9341_two_dimension_t){ { .width = 240U }, { .height = 320U } };
     case isoLeft:
       return (ili9341_two_dimension_t){ { .width = 320U }, { .height = 240U } };
+  }
+}
+
+static ili9341_touch_status_t ili9341_update_touch_status(ili9341_t *dev)
+{
+  ili9341_touch_status_t status;
+
+  // read the new/incoming state of the touch screen
+  status.pressed =
+      ili9341_touch_pressed(dev, &(status.position), &(status.pressure));
+
+  // switch path based on existing/prior state of the touch screen
+  switch (dev->touch_pressed) {
+    case itpNotPressed:
+      if (itpPressed == status.pressed) {
+        // state change, start of press
+        if (NULL != dev->touch_pressed_begin)
+          { dev->touch_pressed_begin(dev); }
+      }
+      break;
+
+    case itpPressed:
+      if (itpNotPressed == status.pressed) {
+        // state change, end of press
+        if (NULL != dev->touch_pressed_end)
+          { dev->touch_pressed_end(dev); }
+      }
+      break;
+
+    default:
+      break;
+  }
+
+  // update the internal state with current state of touch screen
+  if (status.pressed != dev->touch_pressed) {
+    status.changed = itcDidChange;
+    dev->touch_pressed = status.pressed;
+  }
+  else {
+    status.changed = itcDidNotChange;
   }
 }

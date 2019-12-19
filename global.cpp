@@ -13,14 +13,13 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-#include <Adafruit_ILI9341.h>
+#include <ILI9341_t3.h>
 #include <XPT2046_Touchscreen.h>
 #include <Arduino.h>
 
 #include <libstusb4500.h>
 
 #include "ili9341.h"
-//#include "neopixel.h"
 #include "global.h"
 
 // ---------------------------------------------------------- private defines --
@@ -35,19 +34,11 @@
 
 // ------------------------------------------------------------ private types --
 
-//typedef struct
-//{
-//  neopixel_mode_t  mode;
-//  neopixel_color_t color;
-//  uint8_t          bright;
-//  uint32_t         delay;
-//}
-//neopixel_status_info_t;
+/* nothing */
 
 // ------------------------------------------------------- exported variables --
 
 extern ili9341_t *screen;
-//extern neopixel_t *pixel;
 extern stusb4500_device_t *usbpd;
 
 // -------------------------------------------------------- private variables --
@@ -55,14 +46,6 @@ extern stusb4500_device_t *usbpd;
 const char *DEBUG_LEVEL_PREFIX[ilCOUNT] = {
   "[ ] ", "[*] ", "[!] "
 };
-
-//const neopixel_status_info_t STATUS_INFO_COLOR[siCOUNT] = {
-//  /* siInitializing          */ { .mode = nmFixed,    .color = RGB(0x00, 0xFF, 0xFF), .bright =  30U, .delay =  0U }, // fixed teal mid
-//  /* siIdleDisconnected      */ { .mode = nmPulse,    .color = RGB(0xFF, 0x00, 0x00), .bright =  10U, .delay = 50U }, // pulse red dim slow
-//  /* siIdleConnected         */ { .mode = nmFabulous, .color = RGB(0x00, 0x00, 0x00), .bright =  20U, .delay = 10U }, // fabulous dim med
-//  /* siIdleConnectedNoSource */ { .mode = nmPulse,    .color = RGB(0xFF, 0x00, 0xFF), .bright =  10U, .delay = 50U }, // pulse purple dim slow
-//  /* siIdentifyingSource     */ { .mode = nmFixed,    .color = RGB(0x00, 0x00, 0xFF), .bright = 100U, .delay =  0U }  // fixed blue bright
-//};
 
 // ---------------------------------------------- private function prototypes --
 
@@ -76,8 +59,6 @@ void usbpd_alert();
 
 void touch_begin(ili9341_t *tft);
 void touch_end(ili9341_t *tft);
-
-//void update_pixel(neopixel_t *pix, neopixel_status_info_t info);
 
 void cable_attached(stusb4500_device_t *usb);
 void cable_detached(stusb4500_device_t *usb);
@@ -112,6 +93,13 @@ void init_gpio()
   pinMode(__GPIO_USBPD_ATCH_PIN__, INPUT_PULLUP);
   pinMode(__GPIO_USBPD_ALRT_PIN__, INPUT_PULLUP);
 
+  // TFT reset is active low, i'm choosing to keep it high with a digital pin
+  // instead of a fixed pullup so that we can actually reset it if needed.
+  digitalWrite(__GPIO_TFT_RST_PIN__, LOW);
+  delay(50);
+  digitalWrite(__GPIO_TFT_RST_PIN__, HIGH);
+  delay(20);
+
   //attachInterrupt(
   //    digitalPinToInterrupt(__GPIO_TOUCH_IRQ_PIN__), touch_interrupt, CHANGE);
   attachInterrupt(
@@ -133,11 +121,6 @@ void init_peripherals()
   info(ilInfo, "initializing ...\n");
 
   // --
-  // Neopixel (on-board)
-  //pixel = neopixel_new(__GPIO_NEOPIXEL_PIN__,
-  //    nmPulse, nsShow, STATUS_INFO_COLOR[siInitializing].color, 10, 25);
-
-  // --
   // I2C (bus master)
   Wire.begin();
   Wire.setClock(__STUSB4500_I2C_CLOCK_FREQUENCY__);
@@ -145,12 +128,11 @@ void init_peripherals()
   // --
   // ILI9341 (TFT touch screen)
   screen = ili9341_new(
-      new Adafruit_ILI9341(
-          __GPIO_TFT_CS_PIN__, __GPIO_TFT_DC_PIN__, __GPIO_TFT_MOSI_PIN__,
-          __GPIO_TFT_SCK_PIN__, __GPIO_TFT_RST_PIN__, __GPIO_TFT_MISO_PIN__),
+      new ILI9341_t3(
+          __GPIO_TFT_CS_PIN__, __GPIO_TFT_DC_PIN__),
       new XPT2046_Touchscreen(
           __GPIO_TOUCH_CS_PIN__, __GPIO_TOUCH_IRQ_PIN__),
-      isoPortrait,
+      isoPortraitFlip,
       __GPIO_TOUCH_IRQ_PIN__,
       150, 325, 3800, 4000);
 
@@ -174,9 +156,9 @@ void init_peripherals()
   // --
 
   stusb4500_device_init(usbpd);
-  delay(1000);
+  delay(200);
   stusb4500_set_power(usbpd, 9000, 3000);
-  delay(1000);
+  delay(200);
   stusb4500_pdo_description_t req = stusb4500_power_requested(usbpd);
   if (__STUSB4500_NVM_INVALID_PDO_INDEX__ != req.number) {
     info(ilInfo, "requested capability: (%d) %u mV, %u mA, (%u mA MAX)\n",
@@ -222,75 +204,31 @@ void touch_end(ili9341_t *tft)
   info(ilInfo, "touch ended\n");
 }
 
-//void update_pixel(neopixel_t *pix, neopixel_status_info_t info)
-//{
-//  switch (info.mode) {
-//    case nmFixed:
-//      neopixel_set_color(pix, info.color, info.bright);
-//      break;
-//
-//    case nmPulse:
-//      neopixel_set_pulse(pix, info.color, info.bright, info.delay);
-//      break;
-//
-//    case nmFabulous:
-//      neopixel_set_fabulous(pix, info.bright, info.delay);
-//      break;
-//
-//    default:
-//      break;
-//  }
-//  neopixel_update(pix);
-//}
-
 void cable_attached(stusb4500_device_t *usb)
 {
   info(ilInfo, "cable attached\n");
-  //update_pixel(pixel, STATUS_INFO_COLOR[siIdentifyingSource]);
-  stusb4500_get_source_capabilities(usb);
-  delay(1000);
   stusb4500_select_power_usb_default(usb);
-  delay(1000);
-  stusb4500_pdo_description_t req = stusb4500_power_requested(usb);
-  if (__STUSB4500_NVM_INVALID_PDO_INDEX__ != req.number) {
-    info(ilInfo, "requested capability: (%d) %u mV, %u mA, (%u mA MAX)\n",
-        req.number, req.voltage_mv, req.current_ma, req.max_current_ma);
-  }
-  else {
-    info(ilWarn, "no capability requested!");
-  }
+  stusb4500_get_source_capabilities(usb);
 }
 
 void cable_detached(stusb4500_device_t *usb)
 {
   info(ilInfo, "cable detached\n");
-  //update_pixel(pixel, STATUS_INFO_COLOR[siIdleDisconnected]);
 }
 
 void capabilities_request_begin(stusb4500_device_t *usb)
 {
-  info(ilInfo, "capabilities request begin\n");
-  //update_pixel(pixel, STATUS_INFO_COLOR[siIdentifyingSource]);
+  //info(ilInfo, "capabilities request begin\n");
 }
 
 void capabilities_request_end(stusb4500_device_t *usb)
 {
-  info(ilInfo, "capabilities request end\n");
-  if (0U == usb->usbpd_status.pdo_src_count) {
-    // no sources found
-    info(ilWarn, "no capabilities found\n");
-    //update_pixel(pixel, STATUS_INFO_COLOR[siIdleConnectedNoSource]);
-  }
-  // else {
-  //   // sources found
-  //   update_pixel(pixel, STATUS_INFO_COLOR[siIdleConnected]);
-  // }
+  //info(ilInfo, "capabilities request end\n");
 }
 
 void capabilities_received(stusb4500_device_t *usb)
 {
   info(ilInfo, "capabilities received\n");
-  //update_pixel(pixel, STATUS_INFO_COLOR[siIdleConnected]);
 
   char pdo_str[32];
   float volts;

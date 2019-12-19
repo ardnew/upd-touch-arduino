@@ -18,15 +18,14 @@
 
 #define __WAIT_FOR_SERIAL__
 
-// Grand Central M4
-//#define __GPIO_NEOPIXEL_PIN__ 88
+// Teensy 4.0
 
 // TFT / Touchscreen
 #define __GPIO_TFT_VCC_PIN__    /* 3v3 */
 #define __GPIO_TFT_GND_PIN__    /* GND */
 #define __GPIO_TFT_CS_PIN__     10
 #define __GPIO_TFT_RST_PIN__     2
-#define __GPIO_TFT_DC_PIN__      3
+#define __GPIO_TFT_DC_PIN__      9
 #define __GPIO_TFT_MOSI_PIN__   11
 #define __GPIO_TFT_SCK_PIN__    13
 #define __GPIO_TFT_LED_PIN__    /* 3v3 */
