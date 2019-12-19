@@ -62,8 +62,6 @@ void touch_end(ili9341_t *tft);
 
 void cable_attached(stusb4500_device_t *usb);
 void cable_detached(stusb4500_device_t *usb);
-void capabilities_request_begin(stusb4500_device_t *usb);
-void capabilities_request_end(stusb4500_device_t *usb);
 void capabilities_received(stusb4500_device_t *usb);
 
 #ifdef __cplusplus
@@ -132,9 +130,9 @@ void init_peripherals()
           __GPIO_TFT_CS_PIN__, __GPIO_TFT_DC_PIN__),
       new XPT2046_Touchscreen(
           __GPIO_TOUCH_CS_PIN__, __GPIO_TOUCH_IRQ_PIN__),
-      isoPortraitFlip,
+      isoPortrait,
       __GPIO_TOUCH_IRQ_PIN__,
-      150, 325, 3800, 4000);
+      225, 325, 3800, 4000);
 
   ili9341_set_touch_pressed_begin(screen, touch_begin);
   ili9341_set_touch_pressed_end(screen, touch_end);
@@ -146,9 +144,6 @@ void init_peripherals()
 
   stusb4500_set_cable_attached(usbpd, cable_attached);
   stusb4500_set_cable_detached(usbpd, cable_detached);
-  stusb4500_set_source_capabilities_request_begin(usbpd, capabilities_request_begin);
-  stusb4500_set_source_capabilities_request_begin(usbpd, capabilities_request_begin);
-  stusb4500_set_source_capabilities_request_end(usbpd, capabilities_request_end);
   stusb4500_set_source_capabilities_received(usbpd, capabilities_received);
 
   info(ilInfo, "initialization complete\n");

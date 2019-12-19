@@ -31,10 +31,10 @@
 #define __GPIO_TFT_LED_PIN__    /* 3v3 */
 #define __GPIO_TFT_MISO_PIN__   12
 #define __GPIO_TOUCH_CLK_PIN__  13
-#define __GPIO_TOUCH_CS_PIN__    9
+#define __GPIO_TOUCH_CS_PIN__    8
 #define __GPIO_TOUCH_MOSI_PIN__ 11
 #define __GPIO_TOUCH_MISO_PIN__ 12
-#define __GPIO_TOUCH_IRQ_PIN__   8
+#define __GPIO_TOUCH_IRQ_PIN__   3
 // USB PD controller
 #define __GPIO_USBPD_GND_PIN__   /* GND */
 #define __GPIO_USBPD_SCL_PIN__   19

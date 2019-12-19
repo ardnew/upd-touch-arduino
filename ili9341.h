@@ -28,6 +28,7 @@
 // ----------------------------------------------------------- exported types --
 
 typedef struct ili9341 ili9341_t;
+typedef struct ili9341_button ili9341_button_t;
 
 typedef struct
 {
@@ -67,6 +68,17 @@ typedef enum
 }
 ili9341_touch_pressed_t;
 
+typedef uint8_t ili9341_touch_pressure_t;
+
+typedef enum
+{
+  itcNONE = -1,
+  itcDidNotChange, // = 0
+  itcDidChange,    // = 1
+  itcCOUNT         // = 2
+}
+ili9341_touch_changed_t;
+
 typedef enum
 {
   iwwNONE = -1,
@@ -87,6 +99,7 @@ typedef enum
 ili9341_spi_slave_t;
 
 typedef void (*ili9341_touch_callback_t)(ili9341_t *);
+typedef void (*ili9341_button_callback_t)(ili9341_button_t *);
 
 typedef enum
 {
@@ -117,7 +130,13 @@ ili9341_t *ili9341_new(
     uint16_t touch_coordinate_max_x,
     uint16_t touch_coordinate_max_y);
 
+ili9341_button_t *ili9341_button_new(
+    ili9341_t *dev, char * const text, uint16_t id,
+    uint16_t x, uint16_t y, uint16_t width, uint16_t height,
+    ili9341_button_callback_t touch_down, ili9341_button_callback_t touch_up);
+
 void ili9341_draw(ili9341_t *dev);
+void ili9341_button_draw(ili9341_button_t *button, ili9341_touch_pressed_t pressed);
 
 ili9341_touch_pressed_t ili9341_touch_pressed(ili9341_t *dev,
     ili9341_two_dimension_t *pos, uint8_t *pressure);
