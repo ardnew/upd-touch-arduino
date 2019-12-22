@@ -13,12 +13,14 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+#include <Adafruit_INA260.h>
 #include <ILI9341_t3.h>
-#include <XPT2046_Touchscreen.h>
+#include <XPT2046_Calibrated.h>
 #include <Arduino.h>
 
 #include <libstusb4500.h>
 
+#include "ina260.h"
 #include "ili9341.h"
 #include "global.h"
 
@@ -38,6 +40,7 @@
 
 // ------------------------------------------------------- exported variables --
 
+extern ina260_t *vmon;
 extern ili9341_t *screen;
 extern stusb4500_device_t *usbpd;
 
@@ -60,9 +63,17 @@ void usbpd_alert();
 void touch_begin(ili9341_t *tft);
 void touch_end(ili9341_t *tft);
 
+void toggle_power_pressed(ili9341_t *tft, void *data);
+void cycle_power_pressed(ili9341_t *tft, void *data);
+void set_power_pressed(ili9341_t *tft, void *data);
+void get_source_cap_pressed(ili9341_t *tft, void *data);
+
 void cable_attached(stusb4500_device_t *usb);
 void cable_detached(stusb4500_device_t *usb);
 void capabilities_received(stusb4500_device_t *usb);
+
+void refresh_source_capabilities(stusb4500_device_t *usb);
+void refresh_sink_capabilities(stusb4500_device_t *usb);
 
 #ifdef __cplusplus
 }
@@ -116,7 +127,7 @@ void init_peripherals()
   // USB serial (debugging and general info)
   Serial.begin(__SERIAL_BAUD__);
 
-  info(ilInfo, "initializing ...\n");
+  info(ilInfo, "initializing ...");
 
   // --
   // I2C (bus master)
@@ -124,18 +135,27 @@ void init_peripherals()
   Wire.setClock(__STUSB4500_I2C_CLOCK_FREQUENCY__);
 
   // --
+  // INA260 (voltage/current sensor)
+  vmon = ina260_new(new Adafruit_INA260());
+
+  // --
   // ILI9341 (TFT touch screen)
   screen = ili9341_new(
       new ILI9341_t3(
           __GPIO_TFT_CS_PIN__, __GPIO_TFT_DC_PIN__),
-      new XPT2046_Touchscreen(
+      new XPT2046_Calibrated(
           __GPIO_TOUCH_CS_PIN__, __GPIO_TOUCH_IRQ_PIN__),
-      isoTop,
-      __GPIO_TOUCH_IRQ_PIN__,
-      360, 100, 3920, 3560);
+      vmon,
+      isoLeft,
+      __GPIO_TOUCH_IRQ_PIN__);
 
-  ili9341_set_touch_pressed_begin(screen, touch_begin);
-  ili9341_set_touch_pressed_end(screen, touch_end);
+  ili9341_set_command_pressed(screen, icTogglePower, toggle_power_pressed);
+  ili9341_set_command_pressed(screen, icCyclePower, cycle_power_pressed);
+  ili9341_set_command_pressed(screen, icSetPower, set_power_pressed);
+  ili9341_set_command_pressed(screen, icGetSourceCap, get_source_cap_pressed);
+
+  ili9341_draw_template(screen);
+  ili9341_init_request_source_capabilities(screen);
 
   // --
   // STUSB4500 (zoinks!)
@@ -146,22 +166,28 @@ void init_peripherals()
   stusb4500_set_cable_detached(usbpd, cable_detached);
   stusb4500_set_source_capabilities_received(usbpd, capabilities_received);
 
-  info(ilInfo, "initialization complete\n");
+  info(ilInfo, "initialization complete");
 
   // --
 
   stusb4500_device_init(usbpd);
-  delay(200);
-  stusb4500_set_power(usbpd, 9000, 3000);
+  delay(500);
+  stusb4500_set_power(usbpd, 5000, 3000);
+  //stusb4500_select_power_usb_default(usbpd);
   delay(200);
   stusb4500_pdo_description_t req = stusb4500_power_requested(usbpd);
   if (__STUSB4500_NVM_INVALID_PDO_INDEX__ != req.number) {
-    info(ilInfo, "requested capability: (%d) %u mV, %u mA, (%u mA MAX)\n",
+    info(ilInfo, "requested capability: (%d) %u mV, %u mA, (%u mA MAX)",
         req.number, req.voltage_mv, req.current_ma, req.max_current_ma);
+    ili9341_set_sink_capability_requested(
+        screen, req.number, req.voltage_mv, req.current_ma);
   }
   else {
     info(ilWarn, "no capability requested!");
   }
+
+  stusb4500_cable_connected_t conn = stusb4500_cable_connected(usbpd);
+  ili9341_redraw_all_sink_capabilities(screen, (uint8_t)conn);
 }
 
 void info(info_level_t level, const char *fmt, ...)
@@ -174,7 +200,7 @@ void info(info_level_t level, const char *fmt, ...)
   va_end(arg);
 
   Serial.print(DEBUG_LEVEL_PREFIX[level]);
-  Serial.print(buff);
+  Serial.println(buff);
 }
 
 // -------------------------------------------------------- private functions --
@@ -191,45 +217,106 @@ void usbpd_alert()
 
 void touch_begin(ili9341_t *tft)
 {
-  info(ilInfo, "touch began\n");
+  info(ilInfo, "touch began");
 }
 
 void touch_end(ili9341_t *tft)
 {
-  info(ilInfo, "touch ended\n");
+  info(ilInfo, "touch ended");
 }
+
+void toggle_power_pressed(ili9341_t *tft, void *data)
+{
+  static bool power_enabled = true;
+
+  if (NULL != tft) {
+    if (power_enabled) {
+      info(ilInfo, "powering off");
+      stusb4500_power_toggle(usbpd, sptPowerOff, srwNONE);
+      ili9341_remove_all_source_capabilities(screen);
+      ili9341_remove_all_sink_capabilities(screen);
+    }
+    else {
+      info(ilInfo, "powering on");
+      stusb4500_power_toggle(usbpd, sptPowerOn, srwDoNotWait);
+    }
+    power_enabled = !power_enabled;
+  }
+}
+
+void cycle_power_pressed(ili9341_t *tft, void *data)
+{
+  info(ilInfo, "cycling power");
+  if (NULL != tft) {
+    ili9341_remove_all_source_capabilities(screen);
+    ili9341_remove_all_sink_capabilities(screen);
+    stusb4500_hard_reset(usbpd, srwDoNotWait);
+  }
+}
+
+void set_power_pressed(ili9341_t *tft, void *data)
+{
+  if ((NULL != tft) && (NULL != data) && (NULL != usbpd)) {
+    uint8_t pdo = *(uint8_t *)data;
+    if (pdo < usbpd->usbpd_status.pdo_src_count) {
+      uint32_t volts = usbpd->usbpd_status.pdo_src[pdo].fix.Voltage * 50U;
+      uint32_t amps  = usbpd->usbpd_status.pdo_src[pdo].fix.Max_Operating_Current * 10U;
+      uint32_t watts = (uint32_t)((float)volts / 1000.0F * (float)amps / 1000.0F);
+
+      stusb4500_set_power(usbpd, volts, amps);
+      refresh_sink_capabilities(usbpd);
+    }
+  }
+}
+
+void get_source_cap_pressed(ili9341_t *tft, void *data)
+{
+  if (NULL != tft) {
+    stusb4500_soft_reset(usbpd, srwWaitReady);
+    ili9341_init_request_source_capabilities(screen);
+    delay(200);
+    stusb4500_select_power_usb_default(usbpd);
+    delay(500);
+    stusb4500_get_source_capabilities(usbpd);
+  }
+}
+
 
 void cable_attached(stusb4500_device_t *usb)
 {
-  info(ilInfo, "cable attached\n");
+  info(ilInfo, "cable attached");
+  ili9341_init_request_source_capabilities(screen);
+  delay(200);
   stusb4500_select_power_usb_default(usb);
+  delay(500);
   stusb4500_get_source_capabilities(usb);
 }
 
 void cable_detached(stusb4500_device_t *usb)
 {
-  info(ilInfo, "cable detached\n");
+  info(ilInfo, "cable detached");
   ili9341_remove_all_source_capabilities(screen);
-}
-
-void capabilities_request_begin(stusb4500_device_t *usb)
-{
-  //info(ilInfo, "capabilities request begin\n");
-}
-
-void capabilities_request_end(stusb4500_device_t *usb)
-{
-  //info(ilInfo, "capabilities request end\n");
+  ili9341_remove_all_sink_capabilities(screen);
+  //stusb4500_hard_reset(usb, srwDoNotWait);
 }
 
 void capabilities_received(stusb4500_device_t *usb)
 {
-  info(ilInfo, "capabilities received\n");
+  info(ilInfo, "capabilities received");
 
-  char pdo_str[128];
+  refresh_source_capabilities(usb);
+  refresh_sink_capabilities(usb);
+}
+
+void refresh_source_capabilities(stusb4500_device_t *usb)
+{
   uint32_t volts;
   uint32_t amps;
   uint32_t watts;
+
+  ili9341_remove_all_source_capabilities(screen);
+
+  info(ilInfo, "source capabilities:");
 
   for (uint8_t i = 0; i < usb->usbpd_status.pdo_src_count; ++i) {
 
@@ -237,12 +324,46 @@ void capabilities_received(stusb4500_device_t *usb)
     amps  = usb->usbpd_status.pdo_src[i].fix.Max_Operating_Current * 10U;
     watts = (uint32_t)((float)volts / 1000.0F * (float)amps / 1000.0F);
 
-    snprintf(pdo_str, 128, " - [%u] %2lu mV, %1lu mA (%3lu W)",
+    ili9341_add_source_capability(screen, i, volts, amps);
+
+    info(ilInfo, " - [%u] %2lu mV, %1lu mA (%3lu W)",
         i + 1, volts, amps, watts);
-
-    ili9341_add_source_capability(
-        screen, i + 1, volts, amps, amps, NULL, NULL);
-
-    info(ilInfo, "%s\n", pdo_str);
   }
+}
+
+void refresh_sink_capabilities(stusb4500_device_t *usb)
+{
+  uint32_t volts;
+  uint32_t amps;
+  uint32_t watts;
+
+  ili9341_remove_all_sink_capabilities(screen);
+
+  info(ilInfo, "sink capabilities:");
+
+  for (uint8_t i = 0; i < usb->usbpd_status.pdo_snk_count; ++i) {
+
+    volts = usb->usbpd_status.pdo_snk[i].fix.Voltage * 50U;
+    amps  = usb->usbpd_status.pdo_snk[i].fix.Operational_Current * 10U;
+    watts = (uint32_t)((float)volts / 1000.0F * (float)amps / 1000.0F);
+
+    ili9341_set_sink_capability(screen, i, volts, amps);
+
+    info(ilInfo, " - [%u] %2lu mV, %1lu mA (%3lu W)",
+        i + 1, volts, amps, watts);
+  }
+
+  stusb4500_pdo_description_t req = stusb4500_power_requested(usbpd);
+  if (__STUSB4500_NVM_INVALID_PDO_INDEX__ != req.number) {
+    info(ilInfo, "requested capability: (%d) %u mV, %u mA, (%u mA MAX)",
+        req.number, req.voltage_mv, req.current_ma, req.max_current_ma);
+    ili9341_set_sink_capability_requested(
+        screen, req.number, req.voltage_mv, req.current_ma);
+  }
+  else {
+    info(ilWarn, "no capability requested!");
+  }
+
+  stusb4500_cable_connected_t conn = stusb4500_cable_connected(usbpd);
+  ili9341_redraw_all_sink_capabilities(screen, (uint8_t)conn);
 }

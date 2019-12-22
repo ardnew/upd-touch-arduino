@@ -1,0 +1,725 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AwesomeF000_10	font/font_AwesomeF000.h	/^const ILI9341_t3_font_t AwesomeF000_10 = {$/;"	v
+AwesomeF000_10_data	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_10_data[] = {$/;"	v
+AwesomeF000_10_index	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_10_index[] = {$/;"	v
+AwesomeF000_11	font/font_AwesomeF000.h	/^const ILI9341_t3_font_t AwesomeF000_11 = {$/;"	v
+AwesomeF000_11_data	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_11_data[] = {$/;"	v
+AwesomeF000_11_index	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_11_index[] = {$/;"	v
+AwesomeF000_12	font/font_AwesomeF000.h	/^const ILI9341_t3_font_t AwesomeF000_12 = {$/;"	v
+AwesomeF000_12_data	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_12_data[] = {$/;"	v
+AwesomeF000_12_index	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_12_index[] = {$/;"	v
+AwesomeF000_13	font/font_AwesomeF000.h	/^const ILI9341_t3_font_t AwesomeF000_13 = {$/;"	v
+AwesomeF000_13_data	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_13_data[] = {$/;"	v
+AwesomeF000_13_index	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_13_index[] = {$/;"	v
+AwesomeF000_14	font/font_AwesomeF000.h	/^const ILI9341_t3_font_t AwesomeF000_14 = {$/;"	v
+AwesomeF000_14_data	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_14_data[] = {$/;"	v
+AwesomeF000_14_index	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_14_index[] = {$/;"	v
+AwesomeF000_16	font/font_AwesomeF000.h	/^const ILI9341_t3_font_t AwesomeF000_16 = {$/;"	v
+AwesomeF000_16_data	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_16_data[] = {$/;"	v
+AwesomeF000_16_index	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_16_index[] = {$/;"	v
+AwesomeF000_18	font/font_AwesomeF000.h	/^const ILI9341_t3_font_t AwesomeF000_18 = {$/;"	v
+AwesomeF000_18_data	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_18_data[] = {$/;"	v
+AwesomeF000_18_index	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_18_index[] = {$/;"	v
+AwesomeF000_20	font/font_AwesomeF000.h	/^const ILI9341_t3_font_t AwesomeF000_20 = {$/;"	v
+AwesomeF000_20_data	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_20_data[] = {$/;"	v
+AwesomeF000_20_index	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_20_index[] = {$/;"	v
+AwesomeF000_24	font/font_AwesomeF000.h	/^const ILI9341_t3_font_t AwesomeF000_24 = {$/;"	v
+AwesomeF000_24_data	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_24_data[] = {$/;"	v
+AwesomeF000_24_index	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_24_index[] = {$/;"	v
+AwesomeF000_28	font/font_AwesomeF000.h	/^const ILI9341_t3_font_t AwesomeF000_28 = {$/;"	v
+AwesomeF000_28_data	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_28_data[] = {$/;"	v
+AwesomeF000_28_index	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_28_index[] = {$/;"	v
+AwesomeF000_32	font/font_AwesomeF000.h	/^const ILI9341_t3_font_t AwesomeF000_32 = {$/;"	v
+AwesomeF000_32_data	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_32_data[] = {$/;"	v
+AwesomeF000_32_index	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_32_index[] = {$/;"	v
+AwesomeF000_40	font/font_AwesomeF000.h	/^const ILI9341_t3_font_t AwesomeF000_40 = {$/;"	v
+AwesomeF000_40_data	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_40_data[] = {$/;"	v
+AwesomeF000_40_index	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_40_index[] = {$/;"	v
+AwesomeF000_48	font/font_AwesomeF000.h	/^const ILI9341_t3_font_t AwesomeF000_48 = {$/;"	v
+AwesomeF000_48_data	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_48_data[] = {$/;"	v
+AwesomeF000_48_index	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_48_index[] = {$/;"	v
+AwesomeF000_60	font/font_AwesomeF000.h	/^const ILI9341_t3_font_t AwesomeF000_60 = {$/;"	v
+AwesomeF000_60_data	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_60_data[] = {$/;"	v
+AwesomeF000_60_index	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_60_index[] = {$/;"	v
+AwesomeF000_72	font/font_AwesomeF000.h	/^const ILI9341_t3_font_t AwesomeF000_72 = {$/;"	v
+AwesomeF000_72_data	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_72_data[] = {$/;"	v
+AwesomeF000_72_index	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_72_index[] = {$/;"	v
+AwesomeF000_8	font/font_AwesomeF000.h	/^const ILI9341_t3_font_t AwesomeF000_8 = {$/;"	v
+AwesomeF000_8_data	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_8_data[] = {$/;"	v
+AwesomeF000_8_index	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_8_index[] = {$/;"	v
+AwesomeF000_9	font/font_AwesomeF000.h	/^const ILI9341_t3_font_t AwesomeF000_9 = {$/;"	v
+AwesomeF000_96	font/font_AwesomeF000.h	/^const ILI9341_t3_font_t AwesomeF000_96 = {$/;"	v
+AwesomeF000_96_data	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_96_data[] = {$/;"	v
+AwesomeF000_96_index	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_96_index[] = {$/;"	v
+AwesomeF000_9_data	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_9_data[] = {$/;"	v
+AwesomeF000_9_index	font/font_AwesomeF000.h	/^static const unsigned char AwesomeF000_9_index[] = {$/;"	v
+AwesomeF080_10	font/font_AwesomeF080.h	/^const ILI9341_t3_font_t AwesomeF080_10 = {$/;"	v
+AwesomeF080_10_data	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_10_data[] = {$/;"	v
+AwesomeF080_10_index	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_10_index[] = {$/;"	v
+AwesomeF080_11	font/font_AwesomeF080.h	/^const ILI9341_t3_font_t AwesomeF080_11 = {$/;"	v
+AwesomeF080_11_data	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_11_data[] = {$/;"	v
+AwesomeF080_11_index	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_11_index[] = {$/;"	v
+AwesomeF080_12	font/font_AwesomeF080.h	/^const ILI9341_t3_font_t AwesomeF080_12 = {$/;"	v
+AwesomeF080_12_data	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_12_data[] = {$/;"	v
+AwesomeF080_12_index	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_12_index[] = {$/;"	v
+AwesomeF080_13	font/font_AwesomeF080.h	/^const ILI9341_t3_font_t AwesomeF080_13 = {$/;"	v
+AwesomeF080_13_data	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_13_data[] = {$/;"	v
+AwesomeF080_13_index	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_13_index[] = {$/;"	v
+AwesomeF080_14	font/font_AwesomeF080.h	/^const ILI9341_t3_font_t AwesomeF080_14 = {$/;"	v
+AwesomeF080_14_data	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_14_data[] = {$/;"	v
+AwesomeF080_14_index	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_14_index[] = {$/;"	v
+AwesomeF080_16	font/font_AwesomeF080.h	/^const ILI9341_t3_font_t AwesomeF080_16 = {$/;"	v
+AwesomeF080_16_data	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_16_data[] = {$/;"	v
+AwesomeF080_16_index	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_16_index[] = {$/;"	v
+AwesomeF080_18	font/font_AwesomeF080.h	/^const ILI9341_t3_font_t AwesomeF080_18 = {$/;"	v
+AwesomeF080_18_data	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_18_data[] = {$/;"	v
+AwesomeF080_18_index	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_18_index[] = {$/;"	v
+AwesomeF080_20	font/font_AwesomeF080.h	/^const ILI9341_t3_font_t AwesomeF080_20 = {$/;"	v
+AwesomeF080_20_data	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_20_data[] = {$/;"	v
+AwesomeF080_20_index	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_20_index[] = {$/;"	v
+AwesomeF080_24	font/font_AwesomeF080.h	/^const ILI9341_t3_font_t AwesomeF080_24 = {$/;"	v
+AwesomeF080_24_data	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_24_data[] = {$/;"	v
+AwesomeF080_24_index	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_24_index[] = {$/;"	v
+AwesomeF080_28	font/font_AwesomeF080.h	/^const ILI9341_t3_font_t AwesomeF080_28 = {$/;"	v
+AwesomeF080_28_data	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_28_data[] = {$/;"	v
+AwesomeF080_28_index	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_28_index[] = {$/;"	v
+AwesomeF080_32	font/font_AwesomeF080.h	/^const ILI9341_t3_font_t AwesomeF080_32 = {$/;"	v
+AwesomeF080_32_data	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_32_data[] = {$/;"	v
+AwesomeF080_32_index	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_32_index[] = {$/;"	v
+AwesomeF080_40	font/font_AwesomeF080.h	/^const ILI9341_t3_font_t AwesomeF080_40 = {$/;"	v
+AwesomeF080_40_data	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_40_data[] = {$/;"	v
+AwesomeF080_40_index	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_40_index[] = {$/;"	v
+AwesomeF080_48	font/font_AwesomeF080.h	/^const ILI9341_t3_font_t AwesomeF080_48 = {$/;"	v
+AwesomeF080_48_data	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_48_data[] = {$/;"	v
+AwesomeF080_48_index	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_48_index[] = {$/;"	v
+AwesomeF080_60	font/font_AwesomeF080.h	/^const ILI9341_t3_font_t AwesomeF080_60 = {$/;"	v
+AwesomeF080_60_data	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_60_data[] = {$/;"	v
+AwesomeF080_60_index	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_60_index[] = {$/;"	v
+AwesomeF080_72	font/font_AwesomeF080.h	/^const ILI9341_t3_font_t AwesomeF080_72 = {$/;"	v
+AwesomeF080_72_data	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_72_data[] = {$/;"	v
+AwesomeF080_72_index	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_72_index[] = {$/;"	v
+AwesomeF080_8	font/font_AwesomeF080.h	/^const ILI9341_t3_font_t AwesomeF080_8 = {$/;"	v
+AwesomeF080_8_data	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_8_data[] = {$/;"	v
+AwesomeF080_8_index	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_8_index[] = {$/;"	v
+AwesomeF080_9	font/font_AwesomeF080.h	/^const ILI9341_t3_font_t AwesomeF080_9 = {$/;"	v
+AwesomeF080_96	font/font_AwesomeF080.h	/^const ILI9341_t3_font_t AwesomeF080_96 = {$/;"	v
+AwesomeF080_96_data	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_96_data[] = {$/;"	v
+AwesomeF080_96_index	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_96_index[] = {$/;"	v
+AwesomeF080_9_data	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_9_data[] = {$/;"	v
+AwesomeF080_9_index	font/font_AwesomeF080.h	/^static const unsigned char AwesomeF080_9_index[] = {$/;"	v
+AwesomeF200_10	font/font_AwesomeF200.h	/^const ILI9341_t3_font_t AwesomeF200_10 = {$/;"	v
+AwesomeF200_10_data	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_10_data[] = {$/;"	v
+AwesomeF200_10_index	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_10_index[] = {$/;"	v
+AwesomeF200_11	font/font_AwesomeF200.h	/^const ILI9341_t3_font_t AwesomeF200_11 = {$/;"	v
+AwesomeF200_11_data	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_11_data[] = {$/;"	v
+AwesomeF200_11_index	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_11_index[] = {$/;"	v
+AwesomeF200_12	font/font_AwesomeF200.h	/^const ILI9341_t3_font_t AwesomeF200_12 = {$/;"	v
+AwesomeF200_12_data	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_12_data[] = {$/;"	v
+AwesomeF200_12_index	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_12_index[] = {$/;"	v
+AwesomeF200_13	font/font_AwesomeF200.h	/^const ILI9341_t3_font_t AwesomeF200_13 = {$/;"	v
+AwesomeF200_13_data	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_13_data[] = {$/;"	v
+AwesomeF200_13_index	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_13_index[] = {$/;"	v
+AwesomeF200_14	font/font_AwesomeF200.h	/^const ILI9341_t3_font_t AwesomeF200_14 = {$/;"	v
+AwesomeF200_14_data	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_14_data[] = {$/;"	v
+AwesomeF200_14_index	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_14_index[] = {$/;"	v
+AwesomeF200_16	font/font_AwesomeF200.h	/^const ILI9341_t3_font_t AwesomeF200_16 = {$/;"	v
+AwesomeF200_16_data	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_16_data[] = {$/;"	v
+AwesomeF200_16_index	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_16_index[] = {$/;"	v
+AwesomeF200_18	font/font_AwesomeF200.h	/^const ILI9341_t3_font_t AwesomeF200_18 = {$/;"	v
+AwesomeF200_18_data	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_18_data[] = {$/;"	v
+AwesomeF200_18_index	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_18_index[] = {$/;"	v
+AwesomeF200_20	font/font_AwesomeF200.h	/^const ILI9341_t3_font_t AwesomeF200_20 = {$/;"	v
+AwesomeF200_20_data	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_20_data[] = {$/;"	v
+AwesomeF200_20_index	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_20_index[] = {$/;"	v
+AwesomeF200_24	font/font_AwesomeF200.h	/^const ILI9341_t3_font_t AwesomeF200_24 = {$/;"	v
+AwesomeF200_24_data	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_24_data[] = {$/;"	v
+AwesomeF200_24_index	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_24_index[] = {$/;"	v
+AwesomeF200_28	font/font_AwesomeF200.h	/^const ILI9341_t3_font_t AwesomeF200_28 = {$/;"	v
+AwesomeF200_28_data	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_28_data[] = {$/;"	v
+AwesomeF200_28_index	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_28_index[] = {$/;"	v
+AwesomeF200_32	font/font_AwesomeF200.h	/^const ILI9341_t3_font_t AwesomeF200_32 = {$/;"	v
+AwesomeF200_32_data	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_32_data[] = {$/;"	v
+AwesomeF200_32_index	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_32_index[] = {$/;"	v
+AwesomeF200_40	font/font_AwesomeF200.h	/^const ILI9341_t3_font_t AwesomeF200_40 = {$/;"	v
+AwesomeF200_40_data	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_40_data[] = {$/;"	v
+AwesomeF200_40_index	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_40_index[] = {$/;"	v
+AwesomeF200_48	font/font_AwesomeF200.h	/^const ILI9341_t3_font_t AwesomeF200_48 = {$/;"	v
+AwesomeF200_48_data	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_48_data[] = {$/;"	v
+AwesomeF200_48_index	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_48_index[] = {$/;"	v
+AwesomeF200_60	font/font_AwesomeF200.h	/^const ILI9341_t3_font_t AwesomeF200_60 = {$/;"	v
+AwesomeF200_60_data	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_60_data[] = {$/;"	v
+AwesomeF200_60_index	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_60_index[] = {$/;"	v
+AwesomeF200_72	font/font_AwesomeF200.h	/^const ILI9341_t3_font_t AwesomeF200_72 = {$/;"	v
+AwesomeF200_72_data	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_72_data[] = {$/;"	v
+AwesomeF200_72_index	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_72_index[] = {$/;"	v
+AwesomeF200_8	font/font_AwesomeF200.h	/^const ILI9341_t3_font_t AwesomeF200_8 = {$/;"	v
+AwesomeF200_8_data	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_8_data[] = {$/;"	v
+AwesomeF200_8_index	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_8_index[] = {$/;"	v
+AwesomeF200_9	font/font_AwesomeF200.h	/^const ILI9341_t3_font_t AwesomeF200_9 = {$/;"	v
+AwesomeF200_96	font/font_AwesomeF200.h	/^const ILI9341_t3_font_t AwesomeF200_96 = {$/;"	v
+AwesomeF200_96_data	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_96_data[] = {$/;"	v
+AwesomeF200_96_index	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_96_index[] = {$/;"	v
+AwesomeF200_9_data	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_9_data[] = {$/;"	v
+AwesomeF200_9_index	font/font_AwesomeF200.h	/^static const unsigned char AwesomeF200_9_index[] = {$/;"	v
+BRIGHTEST	neopixel.cpp	256;"	d	file:
+BRIGHTEST	neopixel.cpp	278;"	d	file:
+BRIGHTEST_COLOR	neopixel.cpp	258;"	d	file:
+BUF_SZ	ili9341.cpp	1147;"	d	file:
+BUF_SZ	ili9341.cpp	1179;"	d	file:
+COMMAND_CHAR	ili9341.cpp	/^static char const COMMAND_CHAR[icCOUNT] = { \/\/ from font_AwesomeF000.h$/;"	v	file:
+DEBUG_LEVEL_PREFIX	global.cpp	/^const char *DEBUG_LEVEL_PREFIX[ilCOUNT] = {$/;"	v
+DIMMEST	neopixel.cpp	251;"	d	file:
+DIMMEST	neopixel.cpp	277;"	d	file:
+DIMMEST_COLOR	neopixel.cpp	253;"	d	file:
+DroidSansMono_10	font/font_DroidSansMono.h	/^const ILI9341_t3_font_t DroidSansMono_10 = {$/;"	v
+DroidSansMono_10_data	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_10_data[] = {$/;"	v
+DroidSansMono_10_index	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_10_index[] = {$/;"	v
+DroidSansMono_11	font/font_DroidSansMono.h	/^const ILI9341_t3_font_t DroidSansMono_11 = {$/;"	v
+DroidSansMono_11_data	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_11_data[] = {$/;"	v
+DroidSansMono_11_index	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_11_index[] = {$/;"	v
+DroidSansMono_12	font/font_DroidSansMono.h	/^const ILI9341_t3_font_t DroidSansMono_12 = {$/;"	v
+DroidSansMono_12_data	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_12_data[] = {$/;"	v
+DroidSansMono_12_index	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_12_index[] = {$/;"	v
+DroidSansMono_13	font/font_DroidSansMono.h	/^const ILI9341_t3_font_t DroidSansMono_13 = {$/;"	v
+DroidSansMono_13_data	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_13_data[] = {$/;"	v
+DroidSansMono_13_index	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_13_index[] = {$/;"	v
+DroidSansMono_14	font/font_DroidSansMono.h	/^const ILI9341_t3_font_t DroidSansMono_14 = {$/;"	v
+DroidSansMono_14_data	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_14_data[] = {$/;"	v
+DroidSansMono_14_index	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_14_index[] = {$/;"	v
+DroidSansMono_16	font/font_DroidSansMono.h	/^const ILI9341_t3_font_t DroidSansMono_16 = {$/;"	v
+DroidSansMono_16_data	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_16_data[] = {$/;"	v
+DroidSansMono_16_index	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_16_index[] = {$/;"	v
+DroidSansMono_18	font/font_DroidSansMono.h	/^const ILI9341_t3_font_t DroidSansMono_18 = {$/;"	v
+DroidSansMono_18_data	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_18_data[] = {$/;"	v
+DroidSansMono_18_index	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_18_index[] = {$/;"	v
+DroidSansMono_20	font/font_DroidSansMono.h	/^const ILI9341_t3_font_t DroidSansMono_20 = {$/;"	v
+DroidSansMono_20_data	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_20_data[] = {$/;"	v
+DroidSansMono_20_index	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_20_index[] = {$/;"	v
+DroidSansMono_24	font/font_DroidSansMono.h	/^const ILI9341_t3_font_t DroidSansMono_24 = {$/;"	v
+DroidSansMono_24_data	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_24_data[] = {$/;"	v
+DroidSansMono_24_index	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_24_index[] = {$/;"	v
+DroidSansMono_28	font/font_DroidSansMono.h	/^const ILI9341_t3_font_t DroidSansMono_28 = {$/;"	v
+DroidSansMono_28_data	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_28_data[] = {$/;"	v
+DroidSansMono_28_index	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_28_index[] = {$/;"	v
+DroidSansMono_32	font/font_DroidSansMono.h	/^const ILI9341_t3_font_t DroidSansMono_32 = {$/;"	v
+DroidSansMono_32_data	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_32_data[] = {$/;"	v
+DroidSansMono_32_index	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_32_index[] = {$/;"	v
+DroidSansMono_40	font/font_DroidSansMono.h	/^const ILI9341_t3_font_t DroidSansMono_40 = {$/;"	v
+DroidSansMono_40_data	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_40_data[] = {$/;"	v
+DroidSansMono_40_index	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_40_index[] = {$/;"	v
+DroidSansMono_48	font/font_DroidSansMono.h	/^const ILI9341_t3_font_t DroidSansMono_48 = {$/;"	v
+DroidSansMono_48_data	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_48_data[] = {$/;"	v
+DroidSansMono_48_index	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_48_index[] = {$/;"	v
+DroidSansMono_60	font/font_DroidSansMono.h	/^const ILI9341_t3_font_t DroidSansMono_60 = {$/;"	v
+DroidSansMono_60_data	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_60_data[] = {$/;"	v
+DroidSansMono_60_index	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_60_index[] = {$/;"	v
+DroidSansMono_72	font/font_DroidSansMono.h	/^const ILI9341_t3_font_t DroidSansMono_72 = {$/;"	v
+DroidSansMono_72_data	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_72_data[] = {$/;"	v
+DroidSansMono_72_index	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_72_index[] = {$/;"	v
+DroidSansMono_8	font/font_DroidSansMono.h	/^const ILI9341_t3_font_t DroidSansMono_8 = {$/;"	v
+DroidSansMono_8_data	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_8_data[] = {$/;"	v
+DroidSansMono_8_index	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_8_index[] = {$/;"	v
+DroidSansMono_9	font/font_DroidSansMono.h	/^const ILI9341_t3_font_t DroidSansMono_9 = {$/;"	v
+DroidSansMono_96	font/font_DroidSansMono.h	/^const ILI9341_t3_font_t DroidSansMono_96 = {$/;"	v
+DroidSansMono_96_data	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_96_data[] = {$/;"	v
+DroidSansMono_96_index	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_96_index[] = {$/;"	v
+DroidSansMono_9_data	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_9_data[] = {$/;"	v
+DroidSansMono_9_index	font/font_DroidSansMono.h	/^static const unsigned char DroidSansMono_9_index[] = {$/;"	v
+DroidSans_10	font/font_DroidSans.h	/^const ILI9341_t3_font_t DroidSans_10 = {$/;"	v
+DroidSans_10_data	font/font_DroidSans.h	/^static const unsigned char DroidSans_10_data[] = {$/;"	v
+DroidSans_10_index	font/font_DroidSans.h	/^static const unsigned char DroidSans_10_index[] = {$/;"	v
+DroidSans_11	font/font_DroidSans.h	/^const ILI9341_t3_font_t DroidSans_11 = {$/;"	v
+DroidSans_11_data	font/font_DroidSans.h	/^static const unsigned char DroidSans_11_data[] = {$/;"	v
+DroidSans_11_index	font/font_DroidSans.h	/^static const unsigned char DroidSans_11_index[] = {$/;"	v
+DroidSans_12	font/font_DroidSans.h	/^const ILI9341_t3_font_t DroidSans_12 = {$/;"	v
+DroidSans_12_data	font/font_DroidSans.h	/^static const unsigned char DroidSans_12_data[] = {$/;"	v
+DroidSans_12_index	font/font_DroidSans.h	/^static const unsigned char DroidSans_12_index[] = {$/;"	v
+DroidSans_13	font/font_DroidSans.h	/^const ILI9341_t3_font_t DroidSans_13 = {$/;"	v
+DroidSans_13_data	font/font_DroidSans.h	/^static const unsigned char DroidSans_13_data[] = {$/;"	v
+DroidSans_13_index	font/font_DroidSans.h	/^static const unsigned char DroidSans_13_index[] = {$/;"	v
+DroidSans_14	font/font_DroidSans.h	/^const ILI9341_t3_font_t DroidSans_14 = {$/;"	v
+DroidSans_14_data	font/font_DroidSans.h	/^static const unsigned char DroidSans_14_data[] = {$/;"	v
+DroidSans_14_index	font/font_DroidSans.h	/^static const unsigned char DroidSans_14_index[] = {$/;"	v
+DroidSans_16	font/font_DroidSans.h	/^const ILI9341_t3_font_t DroidSans_16 = {$/;"	v
+DroidSans_16_data	font/font_DroidSans.h	/^static const unsigned char DroidSans_16_data[] = {$/;"	v
+DroidSans_16_index	font/font_DroidSans.h	/^static const unsigned char DroidSans_16_index[] = {$/;"	v
+DroidSans_18	font/font_DroidSans.h	/^const ILI9341_t3_font_t DroidSans_18 = {$/;"	v
+DroidSans_18_data	font/font_DroidSans.h	/^static const unsigned char DroidSans_18_data[] = {$/;"	v
+DroidSans_18_index	font/font_DroidSans.h	/^static const unsigned char DroidSans_18_index[] = {$/;"	v
+DroidSans_20	font/font_DroidSans.h	/^const ILI9341_t3_font_t DroidSans_20 = {$/;"	v
+DroidSans_20_data	font/font_DroidSans.h	/^static const unsigned char DroidSans_20_data[] = {$/;"	v
+DroidSans_20_index	font/font_DroidSans.h	/^static const unsigned char DroidSans_20_index[] = {$/;"	v
+DroidSans_24	font/font_DroidSans.h	/^const ILI9341_t3_font_t DroidSans_24 = {$/;"	v
+DroidSans_24_data	font/font_DroidSans.h	/^static const unsigned char DroidSans_24_data[] = {$/;"	v
+DroidSans_24_index	font/font_DroidSans.h	/^static const unsigned char DroidSans_24_index[] = {$/;"	v
+DroidSans_28	font/font_DroidSans.h	/^const ILI9341_t3_font_t DroidSans_28 = {$/;"	v
+DroidSans_28_data	font/font_DroidSans.h	/^static const unsigned char DroidSans_28_data[] = {$/;"	v
+DroidSans_28_index	font/font_DroidSans.h	/^static const unsigned char DroidSans_28_index[] = {$/;"	v
+DroidSans_32	font/font_DroidSans.h	/^const ILI9341_t3_font_t DroidSans_32 = {$/;"	v
+DroidSans_32_data	font/font_DroidSans.h	/^static const unsigned char DroidSans_32_data[] = {$/;"	v
+DroidSans_32_index	font/font_DroidSans.h	/^static const unsigned char DroidSans_32_index[] = {$/;"	v
+DroidSans_40	font/font_DroidSans.h	/^const ILI9341_t3_font_t DroidSans_40 = {$/;"	v
+DroidSans_40_data	font/font_DroidSans.h	/^static const unsigned char DroidSans_40_data[] = {$/;"	v
+DroidSans_40_index	font/font_DroidSans.h	/^static const unsigned char DroidSans_40_index[] = {$/;"	v
+DroidSans_48	font/font_DroidSans.h	/^const ILI9341_t3_font_t DroidSans_48 = {$/;"	v
+DroidSans_48_data	font/font_DroidSans.h	/^static const unsigned char DroidSans_48_data[] = {$/;"	v
+DroidSans_48_index	font/font_DroidSans.h	/^static const unsigned char DroidSans_48_index[] = {$/;"	v
+DroidSans_60	font/font_DroidSans.h	/^const ILI9341_t3_font_t DroidSans_60 = {$/;"	v
+DroidSans_60_data	font/font_DroidSans.h	/^static const unsigned char DroidSans_60_data[] = {$/;"	v
+DroidSans_60_index	font/font_DroidSans.h	/^static const unsigned char DroidSans_60_index[] = {$/;"	v
+DroidSans_72	font/font_DroidSans.h	/^const ILI9341_t3_font_t DroidSans_72 = {$/;"	v
+DroidSans_72_data	font/font_DroidSans.h	/^static const unsigned char DroidSans_72_data[] = {$/;"	v
+DroidSans_72_index	font/font_DroidSans.h	/^static const unsigned char DroidSans_72_index[] = {$/;"	v
+DroidSans_8	font/font_DroidSans.h	/^const ILI9341_t3_font_t DroidSans_8 = {$/;"	v
+DroidSans_8_data	font/font_DroidSans.h	/^static const unsigned char DroidSans_8_data[] = {$/;"	v
+DroidSans_8_index	font/font_DroidSans.h	/^static const unsigned char DroidSans_8_index[] = {$/;"	v
+DroidSans_9	font/font_DroidSans.h	/^const ILI9341_t3_font_t DroidSans_9 = {$/;"	v
+DroidSans_96	font/font_DroidSans.h	/^const ILI9341_t3_font_t DroidSans_96 = {$/;"	v
+DroidSans_96_data	font/font_DroidSans.h	/^static const unsigned char DroidSans_96_data[] = {$/;"	v
+DroidSans_96_index	font/font_DroidSans.h	/^static const unsigned char DroidSans_96_index[] = {$/;"	v
+DroidSans_9_data	font/font_DroidSans.h	/^static const unsigned char DroidSans_9_data[] = {$/;"	v
+DroidSans_9_index	font/font_DroidSans.h	/^static const unsigned char DroidSans_9_index[] = {$/;"	v
+FLOAT_ABSTOL	global.h	21;"	d
+FRAME_INVALID	ili9341.cpp	/^ili9341_frame_t const FRAME_INVALID = (ili9341_frame_t){$/;"	v
+INA260_SAMPLE_INVALID	ina260.cpp	/^ina260_sample_t const INA260_SAMPLE_INVALID = (ina260_sample_t){ 0, 0, 0U };$/;"	v
+Nunito_10	font/font_Nunito.h	/^const ILI9341_t3_font_t Nunito_10 = {$/;"	v
+Nunito_10_Bold	font/font_NunitoBold.h	/^const ILI9341_t3_font_t Nunito_10_Bold = {$/;"	v
+Nunito_10_Bold_data	font/font_NunitoBold.h	/^static const unsigned char Nunito_10_Bold_data[] = {$/;"	v
+Nunito_10_Bold_index	font/font_NunitoBold.h	/^static const unsigned char Nunito_10_Bold_index[] = {$/;"	v
+Nunito_10_data	font/font_Nunito.h	/^static const unsigned char Nunito_10_data[] = {$/;"	v
+Nunito_10_index	font/font_Nunito.h	/^static const unsigned char Nunito_10_index[] = {$/;"	v
+Nunito_11	font/font_Nunito.h	/^const ILI9341_t3_font_t Nunito_11 = {$/;"	v
+Nunito_11_Bold	font/font_NunitoBold.h	/^const ILI9341_t3_font_t Nunito_11_Bold = {$/;"	v
+Nunito_11_Bold_data	font/font_NunitoBold.h	/^static const unsigned char Nunito_11_Bold_data[] = {$/;"	v
+Nunito_11_Bold_index	font/font_NunitoBold.h	/^static const unsigned char Nunito_11_Bold_index[] = {$/;"	v
+Nunito_11_data	font/font_Nunito.h	/^static const unsigned char Nunito_11_data[] = {$/;"	v
+Nunito_11_index	font/font_Nunito.h	/^static const unsigned char Nunito_11_index[] = {$/;"	v
+Nunito_12	font/font_Nunito.h	/^const ILI9341_t3_font_t Nunito_12 = {$/;"	v
+Nunito_12_Bold	font/font_NunitoBold.h	/^const ILI9341_t3_font_t Nunito_12_Bold = {$/;"	v
+Nunito_12_Bold_data	font/font_NunitoBold.h	/^static const unsigned char Nunito_12_Bold_data[] = {$/;"	v
+Nunito_12_Bold_index	font/font_NunitoBold.h	/^static const unsigned char Nunito_12_Bold_index[] = {$/;"	v
+Nunito_12_data	font/font_Nunito.h	/^static const unsigned char Nunito_12_data[] = {$/;"	v
+Nunito_12_index	font/font_Nunito.h	/^static const unsigned char Nunito_12_index[] = {$/;"	v
+Nunito_13	font/font_Nunito.h	/^const ILI9341_t3_font_t Nunito_13 = {$/;"	v
+Nunito_13_Bold	font/font_NunitoBold.h	/^const ILI9341_t3_font_t Nunito_13_Bold = {$/;"	v
+Nunito_13_Bold_data	font/font_NunitoBold.h	/^static const unsigned char Nunito_13_Bold_data[] = {$/;"	v
+Nunito_13_Bold_index	font/font_NunitoBold.h	/^static const unsigned char Nunito_13_Bold_index[] = {$/;"	v
+Nunito_13_data	font/font_Nunito.h	/^static const unsigned char Nunito_13_data[] = {$/;"	v
+Nunito_13_index	font/font_Nunito.h	/^static const unsigned char Nunito_13_index[] = {$/;"	v
+Nunito_14	font/font_Nunito.h	/^const ILI9341_t3_font_t Nunito_14 = {$/;"	v
+Nunito_14_Bold	font/font_NunitoBold.h	/^const ILI9341_t3_font_t Nunito_14_Bold = {$/;"	v
+Nunito_14_Bold_data	font/font_NunitoBold.h	/^static const unsigned char Nunito_14_Bold_data[] = {$/;"	v
+Nunito_14_Bold_index	font/font_NunitoBold.h	/^static const unsigned char Nunito_14_Bold_index[] = {$/;"	v
+Nunito_14_data	font/font_Nunito.h	/^static const unsigned char Nunito_14_data[] = {$/;"	v
+Nunito_14_index	font/font_Nunito.h	/^static const unsigned char Nunito_14_index[] = {$/;"	v
+Nunito_16	font/font_Nunito.h	/^const ILI9341_t3_font_t Nunito_16 = {$/;"	v
+Nunito_16_Bold	font/font_NunitoBold.h	/^const ILI9341_t3_font_t Nunito_16_Bold = {$/;"	v
+Nunito_16_Bold_data	font/font_NunitoBold.h	/^static const unsigned char Nunito_16_Bold_data[] = {$/;"	v
+Nunito_16_Bold_index	font/font_NunitoBold.h	/^static const unsigned char Nunito_16_Bold_index[] = {$/;"	v
+Nunito_16_data	font/font_Nunito.h	/^static const unsigned char Nunito_16_data[] = {$/;"	v
+Nunito_16_index	font/font_Nunito.h	/^static const unsigned char Nunito_16_index[] = {$/;"	v
+Nunito_18	font/font_Nunito.h	/^const ILI9341_t3_font_t Nunito_18 = {$/;"	v
+Nunito_18_Bold	font/font_NunitoBold.h	/^const ILI9341_t3_font_t Nunito_18_Bold = {$/;"	v
+Nunito_18_Bold_data	font/font_NunitoBold.h	/^static const unsigned char Nunito_18_Bold_data[] = {$/;"	v
+Nunito_18_Bold_index	font/font_NunitoBold.h	/^static const unsigned char Nunito_18_Bold_index[] = {$/;"	v
+Nunito_18_data	font/font_Nunito.h	/^static const unsigned char Nunito_18_data[] = {$/;"	v
+Nunito_18_index	font/font_Nunito.h	/^static const unsigned char Nunito_18_index[] = {$/;"	v
+Nunito_20	font/font_Nunito.h	/^const ILI9341_t3_font_t Nunito_20 = {$/;"	v
+Nunito_20_Bold	font/font_NunitoBold.h	/^const ILI9341_t3_font_t Nunito_20_Bold = {$/;"	v
+Nunito_20_Bold_data	font/font_NunitoBold.h	/^static const unsigned char Nunito_20_Bold_data[] = {$/;"	v
+Nunito_20_Bold_index	font/font_NunitoBold.h	/^static const unsigned char Nunito_20_Bold_index[] = {$/;"	v
+Nunito_20_data	font/font_Nunito.h	/^static const unsigned char Nunito_20_data[] = {$/;"	v
+Nunito_20_index	font/font_Nunito.h	/^static const unsigned char Nunito_20_index[] = {$/;"	v
+Nunito_24	font/font_Nunito.h	/^const ILI9341_t3_font_t Nunito_24 = {$/;"	v
+Nunito_24_Bold	font/font_NunitoBold.h	/^const ILI9341_t3_font_t Nunito_24_Bold = {$/;"	v
+Nunito_24_Bold_data	font/font_NunitoBold.h	/^static const unsigned char Nunito_24_Bold_data[] = {$/;"	v
+Nunito_24_Bold_index	font/font_NunitoBold.h	/^static const unsigned char Nunito_24_Bold_index[] = {$/;"	v
+Nunito_24_data	font/font_Nunito.h	/^static const unsigned char Nunito_24_data[] = {$/;"	v
+Nunito_24_index	font/font_Nunito.h	/^static const unsigned char Nunito_24_index[] = {$/;"	v
+Nunito_28	font/font_Nunito.h	/^const ILI9341_t3_font_t Nunito_28 = {$/;"	v
+Nunito_28_Bold	font/font_NunitoBold.h	/^const ILI9341_t3_font_t Nunito_28_Bold = {$/;"	v
+Nunito_28_Bold_data	font/font_NunitoBold.h	/^static const unsigned char Nunito_28_Bold_data[] = {$/;"	v
+Nunito_28_Bold_index	font/font_NunitoBold.h	/^static const unsigned char Nunito_28_Bold_index[] = {$/;"	v
+Nunito_28_data	font/font_Nunito.h	/^static const unsigned char Nunito_28_data[] = {$/;"	v
+Nunito_28_index	font/font_Nunito.h	/^static const unsigned char Nunito_28_index[] = {$/;"	v
+Nunito_32	font/font_Nunito.h	/^const ILI9341_t3_font_t Nunito_32 = {$/;"	v
+Nunito_32_Bold	font/font_NunitoBold.h	/^const ILI9341_t3_font_t Nunito_32_Bold = {$/;"	v
+Nunito_32_Bold_data	font/font_NunitoBold.h	/^static const unsigned char Nunito_32_Bold_data[] = {$/;"	v
+Nunito_32_Bold_index	font/font_NunitoBold.h	/^static const unsigned char Nunito_32_Bold_index[] = {$/;"	v
+Nunito_32_data	font/font_Nunito.h	/^static const unsigned char Nunito_32_data[] = {$/;"	v
+Nunito_32_index	font/font_Nunito.h	/^static const unsigned char Nunito_32_index[] = {$/;"	v
+Nunito_40	font/font_Nunito.h	/^const ILI9341_t3_font_t Nunito_40 = {$/;"	v
+Nunito_40_Bold	font/font_NunitoBold.h	/^const ILI9341_t3_font_t Nunito_40_Bold = {$/;"	v
+Nunito_40_Bold_data	font/font_NunitoBold.h	/^static const unsigned char Nunito_40_Bold_data[] = {$/;"	v
+Nunito_40_Bold_index	font/font_NunitoBold.h	/^static const unsigned char Nunito_40_Bold_index[] = {$/;"	v
+Nunito_40_data	font/font_Nunito.h	/^static const unsigned char Nunito_40_data[] = {$/;"	v
+Nunito_40_index	font/font_Nunito.h	/^static const unsigned char Nunito_40_index[] = {$/;"	v
+Nunito_48	font/font_Nunito.h	/^const ILI9341_t3_font_t Nunito_48 = {$/;"	v
+Nunito_48_Bold	font/font_NunitoBold.h	/^const ILI9341_t3_font_t Nunito_48_Bold = {$/;"	v
+Nunito_48_Bold_data	font/font_NunitoBold.h	/^static const unsigned char Nunito_48_Bold_data[] = {$/;"	v
+Nunito_48_Bold_index	font/font_NunitoBold.h	/^static const unsigned char Nunito_48_Bold_index[] = {$/;"	v
+Nunito_48_data	font/font_Nunito.h	/^static const unsigned char Nunito_48_data[] = {$/;"	v
+Nunito_48_index	font/font_Nunito.h	/^static const unsigned char Nunito_48_index[] = {$/;"	v
+Nunito_60	font/font_Nunito.h	/^const ILI9341_t3_font_t Nunito_60 = {$/;"	v
+Nunito_60_Bold	font/font_NunitoBold.h	/^const ILI9341_t3_font_t Nunito_60_Bold = {$/;"	v
+Nunito_60_Bold_data	font/font_NunitoBold.h	/^static const unsigned char Nunito_60_Bold_data[] = {$/;"	v
+Nunito_60_Bold_index	font/font_NunitoBold.h	/^static const unsigned char Nunito_60_Bold_index[] = {$/;"	v
+Nunito_60_data	font/font_Nunito.h	/^static const unsigned char Nunito_60_data[] = {$/;"	v
+Nunito_60_index	font/font_Nunito.h	/^static const unsigned char Nunito_60_index[] = {$/;"	v
+Nunito_72	font/font_Nunito.h	/^const ILI9341_t3_font_t Nunito_72 = {$/;"	v
+Nunito_72_Bold	font/font_NunitoBold.h	/^const ILI9341_t3_font_t Nunito_72_Bold = {$/;"	v
+Nunito_72_Bold_data	font/font_NunitoBold.h	/^static const unsigned char Nunito_72_Bold_data[] = {$/;"	v
+Nunito_72_Bold_index	font/font_NunitoBold.h	/^static const unsigned char Nunito_72_Bold_index[] = {$/;"	v
+Nunito_72_data	font/font_Nunito.h	/^static const unsigned char Nunito_72_data[] = {$/;"	v
+Nunito_72_index	font/font_Nunito.h	/^static const unsigned char Nunito_72_index[] = {$/;"	v
+Nunito_8	font/font_Nunito.h	/^const ILI9341_t3_font_t Nunito_8 = {$/;"	v
+Nunito_8_Bold	font/font_NunitoBold.h	/^const ILI9341_t3_font_t Nunito_8_Bold = {$/;"	v
+Nunito_8_Bold_data	font/font_NunitoBold.h	/^static const unsigned char Nunito_8_Bold_data[] = {$/;"	v
+Nunito_8_Bold_index	font/font_NunitoBold.h	/^static const unsigned char Nunito_8_Bold_index[] = {$/;"	v
+Nunito_8_data	font/font_Nunito.h	/^static const unsigned char Nunito_8_data[] = {$/;"	v
+Nunito_8_index	font/font_Nunito.h	/^static const unsigned char Nunito_8_index[] = {$/;"	v
+Nunito_9	font/font_Nunito.h	/^const ILI9341_t3_font_t Nunito_9 = {$/;"	v
+Nunito_96	font/font_Nunito.h	/^const ILI9341_t3_font_t Nunito_96 = {$/;"	v
+Nunito_96_Bold	font/font_NunitoBold.h	/^const ILI9341_t3_font_t Nunito_96_Bold = {$/;"	v
+Nunito_96_Bold_data	font/font_NunitoBold.h	/^static const unsigned char Nunito_96_Bold_data[] = {$/;"	v
+Nunito_96_Bold_index	font/font_NunitoBold.h	/^static const unsigned char Nunito_96_Bold_index[] = {$/;"	v
+Nunito_96_data	font/font_Nunito.h	/^static const unsigned char Nunito_96_data[] = {$/;"	v
+Nunito_96_index	font/font_Nunito.h	/^static const unsigned char Nunito_96_index[] = {$/;"	v
+Nunito_9_Bold	font/font_NunitoBold.h	/^const ILI9341_t3_font_t Nunito_9_Bold = {$/;"	v
+Nunito_9_Bold_data	font/font_NunitoBold.h	/^static const unsigned char Nunito_9_Bold_data[] = {$/;"	v
+Nunito_9_Bold_index	font/font_NunitoBold.h	/^static const unsigned char Nunito_9_Bold_index[] = {$/;"	v
+Nunito_9_data	font/font_Nunito.h	/^static const unsigned char Nunito_9_data[] = {$/;"	v
+Nunito_9_index	font/font_Nunito.h	/^static const unsigned char Nunito_9_index[] = {$/;"	v
+POINT_INVALID	ili9341.cpp	/^ili9341_point_t const POINT_INVALID = (ili9341_point_t){ {0xFFFF}, {0xFFFF} };$/;"	v
+RGB	neopixel.h	23;"	d
+SIZE_INVALID	ili9341.cpp	/^ili9341_point_t const SIZE_INVALID  =  (ili9341_size_t){ {0xFFFF}, {0xFFFF} };$/;"	v
+SNK_PDO_INVALID	ili9341.cpp	/^ili9341_sink_capability_t const SNK_PDO_INVALID =$/;"	v
+SRC_CAP_INVALID	ili9341.cpp	/^ili9341_source_capability_t const SRC_CAP_INVALID =$/;"	v
+_ILI9341_t3_font_AwesomeF000_	font/font_AwesomeF000.h	2;"	d
+_ILI9341_t3_font_AwesomeF080_	font/font_AwesomeF080.h	2;"	d
+_ILI9341_t3_font_AwesomeF200_	font/font_AwesomeF200.h	2;"	d
+_ILI9341_t3_font_DroidSansMono_	font/font_DroidSansMono.h	2;"	d
+_ILI9341_t3_font_DroidSans_	font/font_DroidSans.h	2;"	d
+_ILI9341_t3_font_NunitoBold_	font/font_NunitoBold.h	2;"	d
+_ILI9341_t3_font_Nunito_	font/font_Nunito.h	2;"	d
+__GLOBAL_H__	global.h	11;"	d
+__GPIO_TFT_CS_PIN__	global.h	28;"	d
+__GPIO_TFT_DC_PIN__	global.h	30;"	d
+__GPIO_TFT_GND_PIN__	global.h	27;"	d
+__GPIO_TFT_LED_PIN__	global.h	33;"	d
+__GPIO_TFT_MISO_PIN__	global.h	34;"	d
+__GPIO_TFT_MOSI_PIN__	global.h	31;"	d
+__GPIO_TFT_RST_PIN__	global.h	29;"	d
+__GPIO_TFT_SCK_PIN__	global.h	32;"	d
+__GPIO_TFT_VCC_PIN__	global.h	26;"	d
+__GPIO_TOUCH_CLK_PIN__	global.h	35;"	d
+__GPIO_TOUCH_CS_PIN__	global.h	36;"	d
+__GPIO_TOUCH_IRQ_PIN__	global.h	39;"	d
+__GPIO_TOUCH_MISO_PIN__	global.h	38;"	d
+__GPIO_TOUCH_MOSI_PIN__	global.h	37;"	d
+__GPIO_USBPD_ALRT_PIN__	global.h	48;"	d
+__GPIO_USBPD_ATCH_PIN__	global.h	47;"	d
+__GPIO_USBPD_GND_PIN__	global.h	41;"	d
+__GPIO_USBPD_RST_PIN__	global.h	44;"	d
+__GPIO_USBPD_SCL_PIN__	global.h	42;"	d
+__GPIO_USBPD_SDA_PIN__	global.h	43;"	d
+__GPIO_USBPD_VCC_PIN__	global.h	46;"	d
+__GPIO_USBPD_VPP_PIN__	global.h	45;"	d
+__ILI9341_CMD_INSET_PX__	ili9341.cpp	73;"	d	file:
+__ILI9341_COLOR565	ili9341.h	27;"	d
+__ILI9341_COLOR_BACKGROUND__	ili9341.cpp	26;"	d	file:
+__ILI9341_COLOR_CMD_ACTIVE__	ili9341.cpp	30;"	d	file:
+__ILI9341_COLOR_CMD_BORDER__	ili9341.cpp	28;"	d	file:
+__ILI9341_COLOR_CMD_NORMAL__	ili9341.cpp	29;"	d	file:
+__ILI9341_COLOR_DOCK_BORDER__	ili9341.cpp	27;"	d	file:
+__ILI9341_COLOR_GROUP_CAPTION__	ili9341.cpp	32;"	d	file:
+__ILI9341_COLOR_SNK_LABEL__	ili9341.cpp	34;"	d	file:
+__ILI9341_COLOR_SNK_VALUE__	ili9341.cpp	35;"	d	file:
+__ILI9341_COLOR_SRC_ACT_ICON__	ili9341.cpp	43;"	d	file:
+__ILI9341_COLOR_SRC_ACT_TEXT__	ili9341.cpp	47;"	d	file:
+__ILI9341_COLOR_SRC_CAP_ICON__	ili9341.cpp	41;"	d	file:
+__ILI9341_COLOR_SRC_CAP_NONE__	ili9341.cpp	39;"	d	file:
+__ILI9341_COLOR_SRC_CAP_REQ_SYM__	ili9341.cpp	38;"	d	file:
+__ILI9341_COLOR_SRC_CAP_REQ__	ili9341.cpp	37;"	d	file:
+__ILI9341_COLOR_SRC_CAP_TEXT__	ili9341.cpp	45;"	d	file:
+__ILI9341_COLOR_SRC_SEL_ICON__	ili9341.cpp	42;"	d	file:
+__ILI9341_COLOR_SRC_SEL_TEXT__	ili9341.cpp	46;"	d	file:
+__ILI9341_COLOR_VBUS_0V__	ili9341.cpp	58;"	d	file:
+__ILI9341_COLOR_VBUS_12V__	ili9341.cpp	61;"	d	file:
+__ILI9341_COLOR_VBUS_15V__	ili9341.cpp	62;"	d	file:
+__ILI9341_COLOR_VBUS_20V__	ili9341.cpp	63;"	d	file:
+__ILI9341_COLOR_VBUS_5V__	ili9341.cpp	59;"	d	file:
+__ILI9341_COLOR_VBUS_9V__	ili9341.cpp	60;"	d	file:
+__ILI9341_COLOR_VBUS_HIGH__	ili9341.cpp	56;"	d	file:
+__ILI9341_COLOR_VBUS_LOW_MED__	ili9341.cpp	53;"	d	file:
+__ILI9341_COLOR_VBUS_LOW__	ili9341.cpp	51;"	d	file:
+__ILI9341_COLOR_VBUS_MED_HIGH__	ili9341.cpp	55;"	d	file:
+__ILI9341_COLOR_VBUS_MED__	ili9341.cpp	54;"	d	file:
+__ILI9341_COLOR_VBUS_OTHER__	ili9341.cpp	49;"	d	file:
+__ILI9341_COLOR_VBUS_PROMPT__	ili9341.cpp	31;"	d	file:
+__ILI9341_COLOR_VBUS_USB__	ili9341.cpp	52;"	d	file:
+__ILI9341_COLOR_VBUS_ZERO__	ili9341.cpp	50;"	d	file:
+__ILI9341_COMMAND_INDEX_INVALID__	ili9341.cpp	78;"	d	file:
+__ILI9341_DOCK_DEPTH_PX__	ili9341.cpp	67;"	d	file:
+__ILI9341_DOCK_RADIUS__	ili9341.cpp	68;"	d	file:
+__ILI9341_H__	ili9341.h	11;"	d
+__ILI9341_MARGIN_PX__	ili9341.cpp	65;"	d	file:
+__ILI9341_PDO_NUMBER_INVALID__	ili9341.cpp	79;"	d	file:
+__ILI9341_SNK_PDO_DEPTH_PX__	ili9341.cpp	70;"	d	file:
+__ILI9341_SNK_PDO_RADIUS__	ili9341.cpp	71;"	d	file:
+__ILI9341_SRC_CAP_REQUEST_TIMEOUT_MS__	ili9341.cpp	81;"	d	file:
+__ILI9341_VBUS_INSET_PX__	ili9341.cpp	75;"	d	file:
+__ILI9341_VBUS_MONITOR_OFFSET_PX__	ili9341.cpp	76;"	d	file:
+__INA260_CONTINUOUS_REFRESH_MS__	ina260.h	36;"	d
+__INA260_CURRENT_MAX_MV__	ina260.h	34;"	d
+__INA260_CURRENT_MIN_MV__	ina260.h	33;"	d
+__INA260_H__	ina260.h	11;"	d
+__INA260_VOLTAGE_MAX_MV__	ina260.h	32;"	d
+__INA260_VOLTAGE_MIN_MV__	ina260.h	31;"	d
+__INA260_VOLTAGE_VBUS_12V_MAX_MV__	ina260.h	25;"	d
+__INA260_VOLTAGE_VBUS_12V_MIN_MV__	ina260.h	24;"	d
+__INA260_VOLTAGE_VBUS_15V_MAX_MV__	ina260.h	27;"	d
+__INA260_VOLTAGE_VBUS_15V_MIN_MV__	ina260.h	26;"	d
+__INA260_VOLTAGE_VBUS_20V_MAX_MV__	ina260.h	29;"	d
+__INA260_VOLTAGE_VBUS_20V_MIN_MV__	ina260.h	28;"	d
+__INA260_VOLTAGE_VBUS_9V_MAX_MV__	ina260.h	23;"	d
+__INA260_VOLTAGE_VBUS_9V_MIN_MV__	ina260.h	22;"	d
+__INA260_VOLTAGE_VBUS_USB_MAX_MV__	ina260.h	21;"	d
+__INA260_VOLTAGE_VBUS_USB_MIN_MV__	ina260.h	20;"	d
+__INA260_VOLTAGE_ZERO_MAX_MV__	ina260.h	19;"	d
+__INFO_LENGTH_MAX__	global.cpp	31;"	d	file:
+__NEOPIXEL_H__	neopixel.h	11;"	d
+__NEOPIXEL_PULSE_BRIGHTEST__	neopixel.cpp	19;"	d	file:
+__NEOPIXEL_PULSE_DELTA__	neopixel.cpp	17;"	d	file:
+__NEOPIXEL_PULSE_DIMMEST__	neopixel.cpp	18;"	d	file:
+__SERIAL_BAUD__	global.cpp	29;"	d	file:
+__WAIT_FOR_SERIAL__	global.h	19;"	d
+act_src_cap_pdo	ili9341.cpp	/^  uint8_t act_src_cap_pdo;$/;"	m	struct:ili9341	file:
+active	ili9341.cpp	/^  uint8_t active;$/;"	m	struct:__anon1	file:
+bg_color	ili9341.cpp	/^  uint16_t bg_color;$/;"	m	struct:ili9341	file:
+blue	neopixel.h	/^  int16_t blue;$/;"	m	struct:__anon21
+bright	neopixel.h	/^  uint8_t            bright; \/\/ total brightness (0x00 - 0xFF)$/;"	m	struct:__anon22
+cable_attached	global.cpp	/^void cable_attached(stusb4500_device_t *usb)$/;"	f
+cable_detached	global.cpp	/^void cable_detached(stusb4500_device_t *usb)$/;"	f
+capabilities_received	global.cpp	/^void capabilities_received(stusb4500_device_t *usb)$/;"	f
+change	neopixel.h	/^  uint8_t            change; \/\/ flag indicating we need to call show()$/;"	m	struct:__anon22
+chmod	neopixel.h	/^  uint8_t            chmod;  \/\/ flag indicating we need to reset pulse\/wheel$/;"	m	struct:__anon22
+cmd_bar_pos	ili9341.cpp	/^  ili9341_point_t cmd_bar_pos;$/;"	m	struct:ili9341	file:
+cmd_frame	ili9341.cpp	/^  ili9341_frame_t cmd_frame[icCOUNT];$/;"	m	struct:ili9341	file:
+cmd_frame_size	ili9341.cpp	/^  ili9341_size_t  cmd_frame_size;$/;"	m	struct:ili9341	file:
+cmd_icon_size	ili9341.cpp	/^  ili9341_size_t  cmd_icon_size;$/;"	m	struct:ili9341	file:
+cmd_sel	ili9341.cpp	/^  ili9341_command_mask_t cmd_sel;$/;"	m	struct:ili9341	file:
+color	neopixel.h	/^  neopixel_color_t   color;  \/\/ current color of pixel$/;"	m	struct:__anon22
+color_clip	neopixel.cpp	/^inline uint8_t color_clip(int16_t c)$/;"	f
+crossHair	ili9341.cpp	/^void crossHair(ili9341_t *dev, uint16_t x, uint16_t y) {$/;"	f
+current_mA	ili9341.cpp	/^  uint16_t current_mA;$/;"	m	struct:__anon1	file:
+current_mA	ili9341.cpp	/^  uint16_t current_mA;$/;"	m	struct:__anon2	file:
+current_mA	ina260.h	/^  int32_t  current_mA;$/;"	m	struct:__anon3
+current_vbus	ili9341.cpp	/^  ina260_sample_t current_vbus;$/;"	m	struct:ili9341	file:
+cycle_power_pressed	global.cpp	/^void cycle_power_pressed(ili9341_t *tft, void *data)$/;"	f
+cycle_power_pressed	ili9341.cpp	/^  ili9341_command_callback_t cycle_power_pressed;$/;"	m	struct:ili9341	file:
+delay	neopixel.h	/^  uint32_t           delay;  \/\/ time to wait between color updates$/;"	m	struct:__anon22
+equals_float	global.h	/^inline bool equals_float(float a, float b)$/;"	f
+frame	ili9341.cpp	/^  ili9341_frame_t frame;$/;"	m	struct:__anon1	file:
+frame	ili9341.cpp	/^  ili9341_frame_t frame;$/;"	m	struct:__anon2	file:
+get_source_cap_pressed	global.cpp	/^void get_source_cap_pressed(ili9341_t *tft, void *data)$/;"	f
+get_source_cap_pressed	ili9341.cpp	/^  ili9341_command_callback_t get_source_cap_pressed;$/;"	m	struct:ili9341	file:
+green	neopixel.h	/^  int16_t green;$/;"	m	struct:__anon21
+height	ili9341.h	/^    uint16_t height;$/;"	m	union:__anon5::__anon7
+icCOUNT	ili9341.h	/^  icCOUNT        =      4U$/;"	e	enum:__anon16
+icCyclePower	ili9341.h	/^  icCyclePower   = 1 << 1U,$/;"	e	enum:__anon16
+icGetSourceCap	ili9341.h	/^  icGetSourceCap = 1 << 2U,$/;"	e	enum:__anon16
+icNONE	ili9341.h	/^  icNONE         = 0U,$/;"	e	enum:__anon16
+icSetPower	ili9341.h	/^  icSetPower     = 1 << 3U,$/;"	e	enum:__anon16
+icTogglePower	ili9341.h	/^  icTogglePower  = 1 << 0U,$/;"	e	enum:__anon16
+ilCOUNT	global.h	/^  ilCOUNT  \/\/ = 3$/;"	e	enum:__anon17
+ilError	global.h	/^  ilError, \/\/ = 2$/;"	e	enum:__anon17
+ilInfo	global.h	/^  ilInfo,  \/\/ = 0$/;"	e	enum:__anon17
+ilNONE	global.h	/^  ilNONE = -1,$/;"	e	enum:__anon17
+ilWarn	global.h	/^  ilWarn,  \/\/ = 1$/;"	e	enum:__anon17
+ili9341	ili9341.cpp	/^struct ili9341$/;"	s	file:
+ili9341_add_source_capability	ili9341.cpp	/^void ili9341_add_source_capability($/;"	f
+ili9341_clear_sink_capabilities_frame	ili9341.cpp	/^static void ili9341_clear_sink_capabilities_frame(ili9341_t *dev)$/;"	f	file:
+ili9341_clear_source_capabilities_frame	ili9341.cpp	/^static void ili9341_clear_source_capabilities_frame(ili9341_t *dev)$/;"	f	file:
+ili9341_color_t	ili9341.h	/^typedef uint16_t ili9341_color_t;$/;"	t
+ili9341_command_callback_t	ili9341.h	/^typedef void (*ili9341_command_callback_t)(ili9341_t *, void *);$/;"	t
+ili9341_command_mask_t	ili9341.h	/^typedef uint32_t ili9341_command_mask_t;$/;"	t
+ili9341_command_t	ili9341.h	/^ili9341_command_t;$/;"	t	typeref:enum:__anon16
+ili9341_containing_command	ili9341.cpp	/^static ili9341_command_mask_t ili9341_containing_command(ili9341_t *dev,$/;"	f	file:
+ili9341_containing_source_capability	ili9341.cpp	/^static uint8_t ili9341_containing_source_capability(ili9341_t *dev,$/;"	f	file:
+ili9341_cursor_position	ili9341.cpp	/^static ili9341_point_t ili9341_cursor_position(ili9341_t *dev)$/;"	f	file:
+ili9341_draw	ili9341.cpp	/^void ili9341_draw(ili9341_t *dev)$/;"	f
+ili9341_draw_commands	ili9341.cpp	/^static ili9341_point_t ili9341_draw_commands(ili9341_t *dev,$/;"	f	file:
+ili9341_draw_sink_capabilities	ili9341.cpp	/^static void ili9341_draw_sink_capabilities(ili9341_t *dev,$/;"	f	file:
+ili9341_draw_source_capabilities	ili9341.cpp	/^static ili9341_frame_t ili9341_draw_source_capabilities(ili9341_t *dev,$/;"	f	file:
+ili9341_draw_template	ili9341.cpp	/^void ili9341_draw_template(ili9341_t *dev)$/;"	f
+ili9341_draw_vbus	ili9341.cpp	/^static ili9341_point_t ili9341_draw_vbus(ili9341_t *dev,$/;"	f	file:
+ili9341_frame_contains	ili9341.cpp	/^static ili9341_point_contained_t ili9341_frame_contains($/;"	f	file:
+ili9341_frame_equals	ili9341.h	/^inline bool ili9341_frame_equals(ili9341_frame_t *a, ili9341_frame_t *b)$/;"	f
+ili9341_frame_t	ili9341.h	/^ili9341_frame_t;$/;"	t	typeref:struct:__anon8
+ili9341_frame_valid	ili9341.h	/^inline bool ili9341_frame_valid(ili9341_frame_t *f)$/;"	f
+ili9341_init_request_source_capabilities	ili9341.cpp	/^void ili9341_init_request_source_capabilities(ili9341_t *dev)$/;"	f
+ili9341_new	ili9341.cpp	/^ili9341_t *ili9341_new($/;"	f
+ili9341_orientation_t	ili9341.h	/^ili9341_orientation_t;$/;"	t	typeref:enum:__anon10
+ili9341_point_contained_t	ili9341.h	/^ili9341_point_contained_t;$/;"	t	typeref:enum:__anon9
+ili9341_point_equals	ili9341.h	/^inline bool ili9341_point_equals(ili9341_point_t a, ili9341_point_t b)$/;"	f
+ili9341_point_t	ili9341.h	/^typedef ili9341_two_dimension_t ili9341_point_t;$/;"	t
+ili9341_point_valid	ili9341.h	/^inline bool ili9341_point_valid(ili9341_point_t p)$/;"	f
+ili9341_redraw_all_sink_capabilities	ili9341.cpp	/^void ili9341_redraw_all_sink_capabilities(ili9341_t *dev, uint8_t cable)$/;"	f
+ili9341_remove_all_sink_capabilities	ili9341.cpp	/^void ili9341_remove_all_sink_capabilities(ili9341_t *dev)$/;"	f
+ili9341_remove_all_source_capabilities	ili9341.cpp	/^void ili9341_remove_all_source_capabilities(ili9341_t *dev)$/;"	f
+ili9341_screen_size	ili9341.cpp	/^static ili9341_size_t ili9341_screen_size(ili9341_orientation_t orientation)$/;"	f	file:
+ili9341_set_command_pressed	ili9341.cpp	/^void ili9341_set_command_pressed(ili9341_t *dev,$/;"	f
+ili9341_set_sink_capability	ili9341.cpp	/^void ili9341_set_sink_capability($/;"	f
+ili9341_set_sink_capability_requested	ili9341.cpp	/^void ili9341_set_sink_capability_requested($/;"	f
+ili9341_sink_capability_t	ili9341.cpp	/^ili9341_sink_capability_t;$/;"	t	typeref:struct:__anon2	file:
+ili9341_size_equals	ili9341.h	/^inline bool ili9341_size_equals(ili9341_size_t a, ili9341_size_t b)$/;"	f
+ili9341_size_t	ili9341.h	/^typedef ili9341_two_dimension_t ili9341_size_t;$/;"	t
+ili9341_size_valid	ili9341.h	/^inline bool ili9341_size_valid(ili9341_size_t s)$/;"	f
+ili9341_source_capability_t	ili9341.cpp	/^ili9341_source_capability_t;$/;"	t	typeref:struct:__anon1	file:
+ili9341_spi_slave_t	ili9341.h	/^ili9341_spi_slave_t;$/;"	t	typeref:enum:__anon14
+ili9341_status_t	ili9341.h	/^ili9341_status_t;$/;"	t	typeref:enum:__anon15
+ili9341_t	ili9341.h	/^typedef struct ili9341 ili9341_t;$/;"	t	typeref:struct:ili9341
+ili9341_touch_changed_t	ili9341.h	/^ili9341_touch_changed_t;$/;"	t	typeref:enum:__anon12
+ili9341_touch_pressed	ili9341.cpp	/^ili9341_touch_pressed_t ili9341_touch_pressed($/;"	f
+ili9341_touch_pressed_t	ili9341.h	/^ili9341_touch_pressed_t;$/;"	t	typeref:enum:__anon11
+ili9341_touch_pressure_t	ili9341.h	/^typedef uint8_t ili9341_touch_pressure_t;$/;"	t
+ili9341_two_dimension_t	ili9341.h	/^ili9341_two_dimension_t;$/;"	t	typeref:struct:__anon5
+ili9341_voltage_color	ili9341.cpp	/^static uint16_t ili9341_voltage_color(int32_t voltage)$/;"	f	file:
+ili9341_word_wrap_t	ili9341.h	/^ili9341_word_wrap_t;$/;"	t	typeref:enum:__anon13
+in_range_float	global.h	/^inline bool in_range_float(float val, float min, float max)$/;"	f
+in_range_i16	global.h	/^inline bool in_range_i16(int16_t val, int16_t min, int16_t max)$/;"	f
+in_range_i32	global.h	/^inline bool in_range_i32(int32_t val, int32_t min, int32_t max)$/;"	f
+in_range_i8	global.h	/^inline bool in_range_i8(int8_t val, int8_t min, int8_t max)$/;"	f
+in_range_u16	global.h	/^inline bool in_range_u16(uint16_t val, uint16_t min, uint16_t max)$/;"	f
+in_range_u32	global.h	/^inline bool in_range_u32(uint32_t val, uint32_t min, uint32_t max)$/;"	f
+in_range_u8	global.h	/^inline bool in_range_u8(uint8_t val, uint8_t min, uint8_t max)$/;"	f
+ina260	ina260.h	/^  Adafruit_INA260 *ina260;$/;"	m	struct:__anon4
+ina260_current	ina260.cpp	/^int32_t ina260_current(ina260_t *dev)$/;"	f
+ina260_new	ina260.cpp	/^ina260_t *ina260_new(Adafruit_INA260 *ina260)$/;"	f
+ina260_sample	ina260.cpp	/^bool ina260_sample(ina260_t *dev, ina260_sample_t *sample)$/;"	f
+ina260_sample_t	ina260.h	/^ina260_sample_t;$/;"	t	typeref:struct:__anon3
+ina260_t	ina260.h	/^ina260_t;$/;"	t	typeref:struct:__anon4
+ina260_voltage	ina260.cpp	/^int32_t ina260_voltage(ina260_t *dev)$/;"	f
+info	global.cpp	/^void info(info_level_t level, const char *fmt, ...)$/;"	f
+info_level_t	global.h	/^info_level_t;$/;"	t	typeref:enum:__anon17
+init_gpio	global.cpp	/^void init_gpio()$/;"	f
+init_peripherals	global.cpp	/^void init_peripherals()$/;"	f
+ipcCOUNT	ili9341.h	/^  ipcCOUNT         \/\/ = 2$/;"	e	enum:__anon9
+ipcContained	ili9341.h	/^  ipcContained,    \/\/ = 1$/;"	e	enum:__anon9
+ipcNONE	ili9341.h	/^  ipcNONE = -1,$/;"	e	enum:__anon9
+ipcNotContained	ili9341.h	/^  ipcNotContained, \/\/ = 0$/;"	e	enum:__anon9
+isCOUNT	ili9341.h	/^  isCOUNT  \/\/ = 2$/;"	e	enum:__anon15
+isERROR	ili9341.h	/^  isERROR, \/\/ = 1$/;"	e	enum:__anon15
+isNONE	ili9341.h	/^  isNONE = -1,$/;"	e	enum:__anon15
+isOK	ili9341.h	/^  isOK,    \/\/ = 0$/;"	e	enum:__anon15
+isoBottom	ili9341.h	/^  isoBottom, isoPortrait      = isoBottom, \/\/ = 0$/;"	e	enum:__anon10
+isoCOUNT	ili9341.h	/^  isoCOUNT                                 \/\/ = 4$/;"	e	enum:__anon10
+isoLandscape	ili9341.h	/^  isoRight,  isoLandscape     = isoRight,  \/\/ = 1$/;"	e	enum:__anon10
+isoLandscapeFlip	ili9341.h	/^  isoLeft,   isoLandscapeFlip = isoLeft,   \/\/ = 3$/;"	e	enum:__anon10
+isoLeft	ili9341.h	/^  isoLeft,   isoLandscapeFlip = isoLeft,   \/\/ = 3$/;"	e	enum:__anon10
+isoNONE	ili9341.h	/^  isoNONE                     = -1,$/;"	e	enum:__anon10
+isoPortrait	ili9341.h	/^  isoBottom, isoPortrait      = isoBottom, \/\/ = 0$/;"	e	enum:__anon10
+isoPortraitFlip	ili9341.h	/^  isoTop,    isoPortraitFlip  = isoTop,    \/\/ = 2$/;"	e	enum:__anon10
+isoRight	ili9341.h	/^  isoRight,  isoLandscape     = isoRight,  \/\/ = 1$/;"	e	enum:__anon10
+isoTop	ili9341.h	/^  isoTop,    isoPortraitFlip  = isoTop,    \/\/ = 2$/;"	e	enum:__anon10
+issCOUNT	ili9341.h	/^  issCOUNT        \/\/ = 2$/;"	e	enum:__anon14
+issDisplayTFT	ili9341.h	/^  issDisplayTFT,  \/\/ = 0$/;"	e	enum:__anon14
+issNONE	ili9341.h	/^  issNONE = -1,$/;"	e	enum:__anon14
+issTouchScreen	ili9341.h	/^  issTouchScreen, \/\/ = 1$/;"	e	enum:__anon14
+itcCOUNT	ili9341.h	/^  itcCOUNT         \/\/ = 2$/;"	e	enum:__anon12
+itcDidChange	ili9341.h	/^  itcDidChange,    \/\/ = 1$/;"	e	enum:__anon12
+itcDidNotChange	ili9341.h	/^  itcDidNotChange, \/\/ = 0$/;"	e	enum:__anon12
+itcNONE	ili9341.h	/^  itcNONE = -1,$/;"	e	enum:__anon12
+itpCOUNT	ili9341.h	/^  itpCOUNT       \/\/ = 2$/;"	e	enum:__anon11
+itpNONE	ili9341.h	/^  itpNONE = -1,$/;"	e	enum:__anon11
+itpNotPressed	ili9341.h	/^  itpNotPressed, \/\/ = 0$/;"	e	enum:__anon11
+itpPressed	ili9341.h	/^  itpPressed,    \/\/ = 1$/;"	e	enum:__anon11
+iwwCOUNT	ili9341.h	/^  iwwCOUNT     \/\/ = 3$/;"	e	enum:__anon13
+iwwCharWrap	ili9341.h	/^  iwwCharWrap, \/\/ = 1$/;"	e	enum:__anon13
+iwwNONE	ili9341.h	/^  iwwNONE = -1,$/;"	e	enum:__anon13
+iwwTruncate	ili9341.h	/^  iwwTruncate, \/\/ = 0$/;"	e	enum:__anon13
+iwwWordWrap	ili9341.h	/^  iwwWordWrap, \/\/ = 2$/;"	e	enum:__anon13
+last	neopixel.h	/^  uint32_t           last;   \/\/ time of last color update$/;"	m	struct:__anon22
+mode	neopixel.h	/^  neopixel_mode_t    mode;   \/\/ the color change mode$/;"	m	struct:__anon22
+neopixel_color_t	neopixel.h	/^neopixel_color_t;$/;"	t	typeref:struct:__anon21
+neopixel_mode_t	neopixel.h	/^neopixel_mode_t;$/;"	t	typeref:enum:__anon20
+neopixel_new	neopixel.cpp	/^neopixel_t *neopixel_new(uint16_t pin, neopixel_mode_t mode, neopixel_show_t show,$/;"	f
+neopixel_set_color	neopixel.cpp	/^void neopixel_set_color(neopixel_t *np, neopixel_color_t color, uint8_t bright)$/;"	f
+neopixel_set_fabulous	neopixel.cpp	/^void neopixel_set_fabulous(neopixel_t *np, uint8_t bright, uint32_t delay)$/;"	f
+neopixel_set_pulse	neopixel.cpp	/^void neopixel_set_pulse(neopixel_t *np, neopixel_color_t color, uint8_t bright, uint32_t delay)$/;"	f
+neopixel_set_show	neopixel.cpp	/^void neopixel_set_show(neopixel_t *np, neopixel_show_t show)$/;"	f
+neopixel_show_t	neopixel.h	/^neopixel_show_t;$/;"	t	typeref:enum:__anon19
+neopixel_t	neopixel.h	/^neopixel_t;$/;"	t	typeref:struct:__anon22
+neopixel_update	neopixel.cpp	/^void neopixel_update(neopixel_t *np)$/;"	f
+next_pulse	neopixel.cpp	/^int8_t next_pulse(neopixel_color_t *color, int8_t dir)$/;"	f
+next_wheel	neopixel.cpp	/^uint8_t next_wheel(neopixel_color_t *color, uint8_t pos)$/;"	f
+nmCOUNT	neopixel.h	/^  nmCOUNT     \/\/ = 3$/;"	e	enum:__anon20
+nmFabulous	neopixel.h	/^  nmFabulous, \/\/ = 2$/;"	e	enum:__anon20
+nmFixed	neopixel.h	/^  nmFixed,    \/\/ = 0$/;"	e	enum:__anon20
+nmNONE	neopixel.h	/^  nmNONE = -1,$/;"	e	enum:__anon20
+nmPulse	neopixel.h	/^  nmPulse,    \/\/ = 1$/;"	e	enum:__anon20
+nsCOUNT	neopixel.h	/^  nsCOUNT      \/\/ = 2$/;"	e	enum:__anon19
+nsDoNotShow	neopixel.h	/^  nsDoNotShow, \/\/ = 0$/;"	e	enum:__anon19
+nsNONE	neopixel.h	/^  nsNONE = -1,$/;"	e	enum:__anon19
+nsShow	neopixel.h	/^  nsShow,      \/\/ = 1$/;"	e	enum:__anon19
+number	ili9341.cpp	/^  uint8_t  number;$/;"	m	struct:__anon1	file:
+number	ili9341.cpp	/^  uint8_t  number;$/;"	m	struct:__anon2	file:
+orientation	ili9341.cpp	/^  ili9341_orientation_t  orientation;$/;"	m	struct:ili9341	file:
+origin	ili9341.h	/^  ili9341_point_t origin;$/;"	m	struct:__anon8
+pin	neopixel.h	/^  uint16_t           pin;    \/\/ board pin number$/;"	m	struct:__anon22
+pixel	neopixel.h	/^  Adafruit_NeoPixel *pixel;  \/\/ NeoPixel object$/;"	m	struct:__anon22
+pulse	neopixel.h	/^  neopixel_color_t   pulse;  \/\/ current pulse color$/;"	m	struct:__anon22
+red	neopixel.h	/^  int16_t red;$/;"	m	struct:__anon21
+refresh_sink_capabilities	global.cpp	/^void refresh_sink_capabilities(stusb4500_device_t *usb)$/;"	f
+refresh_source_capabilities	global.cpp	/^void refresh_source_capabilities(stusb4500_device_t *usb)$/;"	f
+same_color	neopixel.cpp	/^inline uint8_t same_color(neopixel_color_t a, neopixel_color_t b)$/;"	f
+screen_size	ili9341.cpp	/^  ili9341_size_t         screen_size;$/;"	m	struct:ili9341	file:
+sel_src_cap_pdo	ili9341.cpp	/^  uint8_t sel_src_cap_pdo;$/;"	m	struct:ili9341	file:
+selected	ili9341.cpp	/^  uint8_t selected;$/;"	m	struct:__anon1	file:
+set_power_pressed	global.cpp	/^void set_power_pressed(ili9341_t *tft, void *data)$/;"	f
+set_power_pressed	ili9341.cpp	/^  ili9341_command_callback_t set_power_pressed;$/;"	m	struct:ili9341	file:
+show	neopixel.h	/^  neopixel_show_t    show;   \/\/ whether or not neopixel is showing$/;"	m	struct:__anon22
+siCOUNT	global.h	/^  siCOUNT,$/;"	e	enum:__anon18
+siIdentifyingSource	global.h	/^  siIdentifyingSource,$/;"	e	enum:__anon18
+siIdleConnected	global.h	/^  siIdleConnected,$/;"	e	enum:__anon18
+siIdleConnectedNoSource	global.h	/^  siIdleConnectedNoSource,$/;"	e	enum:__anon18
+siIdleDisconnected	global.h	/^  siIdleDisconnected,$/;"	e	enum:__anon18
+siInitializing	global.h	/^  siInitializing,$/;"	e	enum:__anon18
+siNONE	global.h	/^  siNONE = -1,$/;"	e	enum:__anon18
+size	ili9341.h	/^  ili9341_size_t  size;$/;"	m	struct:__anon8
+snk_pdo	ili9341.cpp	/^  ili9341_sink_capability_t snk_pdo[__STUSB4500_NVM_SINK_PDO_COUNT__];$/;"	m	struct:ili9341	file:
+snk_pdo_frame	ili9341.cpp	/^  ili9341_frame_t snk_pdo_frame;$/;"	m	struct:ili9341	file:
+snk_rdo	ili9341.cpp	/^  ili9341_sink_capability_t snk_rdo;$/;"	m	struct:ili9341	file:
+src_cap	ili9341.cpp	/^  ili9341_source_capability_t src_cap[__STUSB4500_NVM_SOURCE_PDO_MAX__];$/;"	m	struct:ili9341	file:
+src_cap_count	ili9341.cpp	/^  uint8_t src_cap_count = 0U;$/;"	m	struct:ili9341	file:
+src_cap_determined	ili9341.cpp	/^  uint8_t  src_cap_determined;$/;"	m	struct:ili9341	file:
+src_cap_frame	ili9341.cpp	/^  ili9341_frame_t src_cap_frame;$/;"	m	struct:ili9341	file:
+src_cap_request_sym	ili9341.cpp	/^  uint8_t  src_cap_request_sym;$/;"	m	struct:ili9341	file:
+src_cap_request_time	ili9341.cpp	/^  uint32_t src_cap_request_time;$/;"	m	struct:ili9341	file:
+src_cap_requesting	ili9341.cpp	/^  uint8_t  src_cap_requesting;$/;"	m	struct:ili9341	file:
+status_info_t	global.h	/^status_info_t;$/;"	t	typeref:enum:__anon18
+tft	ili9341.cpp	/^  ILI9341_t3            *tft;$/;"	m	struct:ili9341	file:
+time	ina260.h	/^  uint32_t time;$/;"	m	struct:__anon3
+toggle_power_pressed	global.cpp	/^void toggle_power_pressed(ili9341_t *tft, void *data)$/;"	f
+toggle_power_pressed	ili9341.cpp	/^  ili9341_command_callback_t toggle_power_pressed;$/;"	m	struct:ili9341	file:
+touch	ili9341.cpp	/^  XPT2046_Calibrated    *touch;$/;"	m	struct:ili9341	file:
+touch_begin	global.cpp	/^void touch_begin(ili9341_t *tft)$/;"	f
+touch_end	global.cpp	/^void touch_end(ili9341_t *tft)$/;"	f
+touch_interrupt_pin	ili9341.cpp	/^  uint16_t touch_interrupt_pin;$/;"	m	struct:ili9341	file:
+usbpd_alert	global.cpp	/^void usbpd_alert()$/;"	f
+usbpd_attach	global.cpp	/^void usbpd_attach()$/;"	f
+vbus_mon_pos	ili9341.cpp	/^  ili9341_point_t vbus_mon_pos;$/;"	m	struct:ili9341	file:
+vmon	ili9341.cpp	/^  ina260_t              *vmon;$/;"	m	struct:ili9341	file:
+voltage_mV	ili9341.cpp	/^  uint16_t voltage_mV;$/;"	m	struct:__anon1	file:
+voltage_mV	ili9341.cpp	/^  uint16_t voltage_mV;$/;"	m	struct:__anon2	file:
+voltage_mV	ina260.h	/^  int32_t  voltage_mV;$/;"	m	struct:__anon3
+wheel	neopixel.h	/^  neopixel_color_t   wheel;  \/\/ current wheel color$/;"	m	struct:__anon22
+width	ili9341.h	/^    uint16_t width;$/;"	m	union:__anon5::__anon6
+x	ili9341.h	/^    uint16_t x;$/;"	m	union:__anon5::__anon6
+y	ili9341.h	/^    uint16_t y;$/;"	m	union:__anon5::__anon7

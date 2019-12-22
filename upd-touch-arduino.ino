@@ -13,6 +13,7 @@
 
 #include <libstusb4500.h>
 
+#include "ina260.h"
 #include "ili9341.h"
 #include "global.h"
 
@@ -34,7 +35,8 @@
 
 // -------------------------------------------------------- private variables --
 
-ili9341_t *screen;
+ina260_t           *vmon;
+ili9341_t          *screen;
 stusb4500_device_t *usbpd;
 
 // ---------------------------------------------- private function prototypes --

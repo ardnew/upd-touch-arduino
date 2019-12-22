@@ -54,7 +54,7 @@ uint8_t next_wheel(neopixel_color_t *color, uint8_t pos);
 neopixel_t *neopixel_new(uint16_t pin, neopixel_mode_t mode, neopixel_show_t show,
     neopixel_color_t color, uint8_t bright, uint32_t delay)
 {
-  info(ilInfo, "creating neopixel ...\n");
+  info(ilInfo, "creating neopixel ...");
 
   neopixel_t *np = (neopixel_t *)malloc(sizeof(neopixel_t));
   if (NULL != np) {
@@ -76,10 +76,10 @@ neopixel_t *neopixel_new(uint16_t pin, neopixel_mode_t mode, neopixel_show_t sho
     np->pixel->clear();
     np->pixel->setBrightness(bright);
 
-    info(ilInfo, "ok\n");
+    info(ilInfo, "ok");
   }
   else {
-    info(ilError, "failed: malloc()\n");
+    info(ilError, "failed: malloc()");
   }
   return np;
 }
@@ -128,7 +128,7 @@ void neopixel_update(neopixel_t *np)
   if (0U == np->change)
     { return; }
 
-  //info(ilInfo, "updating pixel %i\n", 0);
+  //info(ilInfo, "updating pixel %i", 0);
   np->pixel->setPixelColor(0,
       np->pixel->Color(
           color_clip(color.red),

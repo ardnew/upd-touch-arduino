@@ -18,6 +18,8 @@
 
 #define __WAIT_FOR_SERIAL__
 
+#define FLOAT_ABSTOL 5.0e-6
+
 // Teensy 4.0
 
 // TFT / Touchscreen
@@ -75,7 +77,7 @@ status_info_t;
 
 // ------------------------------------------------------- exported variables --
 
-/* nothing */
+extern status_info_t status_info;
 
 // ------------------------------------------------------- exported functions --
 
@@ -87,6 +89,32 @@ void init_gpio();
 void init_peripherals();
 
 void info(info_level_t level, const char *fmt, ...);
+
+inline bool equals_float(float a, float b)
+  { return fabsf(a - b) <= FLOAT_ABSTOL; }
+
+inline bool in_range_u8(uint8_t val, uint8_t min, uint8_t max)
+  { return (val >= min) && (val <= max); }
+
+inline bool in_range_i8(int8_t val, int8_t min, int8_t max)
+  { return (val >= min) && (val <= max); }
+
+inline bool in_range_u16(uint16_t val, uint16_t min, uint16_t max)
+  { return (val >= min) && (val <= max); }
+
+inline bool in_range_i16(int16_t val, int16_t min, int16_t max)
+  { return (val >= min) && (val <= max); }
+
+inline bool in_range_u32(uint32_t val, uint32_t min, uint32_t max)
+  { return (val >= min) && (val <= max); }
+
+inline bool in_range_i32(int32_t val, int32_t min, int32_t max)
+  { return (val >= min) && (val <= max); }
+
+inline bool in_range_float(float val, float min, float max)
+  { return ((val > min) || (equals_float(val, min)))
+            &&
+           ((val < max) || (equals_float(val, max))); }
 
 #ifdef __cplusplus
 }

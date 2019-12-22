@@ -13,8 +13,10 @@
 // ----------------------------------------------------------------- includes --
 
 #include <ILI9341_t3.h>
-#include <XPT2046_Touchscreen.h>
+#include <XPT2046_Calibrated.h>
 #include <SPI.h>
+
+#include "ina260.h"
 
 // ------------------------------------------------------------------ defines --
 
@@ -28,7 +30,6 @@
 // ----------------------------------------------------------- exported types --
 
 typedef struct ili9341 ili9341_t;
-typedef struct ili9341_button ili9341_button_t;
 
 typedef struct
 {
@@ -44,6 +45,16 @@ typedef struct
   };
 }
 ili9341_two_dimension_t;
+
+typedef ili9341_two_dimension_t ili9341_point_t;
+typedef ili9341_two_dimension_t ili9341_size_t;
+
+typedef struct
+{
+  ili9341_point_t origin;
+  ili9341_size_t  size;
+}
+ili9341_frame_t;
 
 typedef enum
 {
@@ -66,7 +77,7 @@ typedef enum
   isoLeft,   isoLandscapeFlip = isoLeft,   // = 3
   isoCOUNT                                 // = 4
 }
-ili9341_screen_orientation_t;
+ili9341_orientation_t;
 
 typedef enum
 {
@@ -107,9 +118,6 @@ typedef enum
 }
 ili9341_spi_slave_t;
 
-typedef void (*ili9341_touch_callback_t)(ili9341_t *);
-typedef void (*ili9341_button_callback_t)(ili9341_button_t *);
-
 typedef enum
 {
   isNONE = -1,
@@ -119,9 +127,26 @@ typedef enum
 }
 ili9341_status_t;
 
+typedef uint32_t ili9341_command_mask_t;
+
+typedef enum
+{
+  icNONE         = 0U,
+  icTogglePower  = 1 << 0U,
+  icCyclePower   = 1 << 1U,
+  icGetSourceCap = 1 << 2U,
+  icSetPower     = 1 << 3U,
+  icCOUNT        =      4U
+}
+ili9341_command_t;
+
+typedef void (*ili9341_command_callback_t)(ili9341_t *, void *);
+
 // ------------------------------------------------------- exported variables --
 
-/* nothing */
+extern ili9341_point_t const POINT_INVALID;
+extern ili9341_size_t const SIZE_INVALID;
+extern ili9341_frame_t const FRAME_INVALID;
 
 // ------------------------------------------------------- exported functions --
 
@@ -130,37 +155,47 @@ extern "C" {
 #endif
 
 ili9341_t *ili9341_new(
-    ILI9341_t3          *tft,
-    XPT2046_Touchscreen *touch,
-    ili9341_screen_orientation_t orientation,
-    uint16_t touch_interrupt_pin,
-    uint16_t touch_coordinate_min_x,
-    uint16_t touch_coordinate_min_y,
-    uint16_t touch_coordinate_max_x,
-    uint16_t touch_coordinate_max_y);
+    ILI9341_t3            *tft,
+    XPT2046_Calibrated    *touch,
+    ina260_t              *vmon,
+    ili9341_orientation_t  orientation,
+    uint16_t touch_interrupt_pin);
 
-ili9341_button_t *ili9341_button_new(
-    ili9341_t *dev, char * const text, uint16_t id,
-    uint16_t x, uint16_t y, uint16_t width, uint16_t height,
-    ili9341_button_callback_t touch_down, ili9341_button_callback_t touch_up);
+inline bool ili9341_point_equals(ili9341_point_t a, ili9341_point_t b)
+  { return (a.x == b.x) && (a.y == b.y); }
+inline bool ili9341_point_valid(ili9341_point_t p)
+  { return !ili9341_point_equals(p, POINT_INVALID); }
 
+inline bool ili9341_size_equals(ili9341_size_t a, ili9341_size_t b)
+  { return (a.width == b.width) && (a.height == b.height); }
+inline bool ili9341_size_valid(ili9341_size_t s)
+  { return !ili9341_size_equals(s, SIZE_INVALID); }
+
+inline bool ili9341_frame_equals(ili9341_frame_t *a, ili9341_frame_t *b)
+  { return ili9341_point_equals(a->origin, b->origin) &&
+            ili9341_size_equals(a->size, b->size); }
+inline bool ili9341_frame_valid(ili9341_frame_t *f)
+  { return !ili9341_frame_equals(f, (ili9341_frame_t *)&FRAME_INVALID); }
+
+void ili9341_draw_template(ili9341_t *dev);
 void ili9341_draw(ili9341_t *dev);
-void ili9341_button_draw(
-    ili9341_button_t *button,
-    ili9341_touch_pressed_t pressed,
-    ili9341_two_dimension_t position, uint8_t pressure);
 
-ili9341_touch_pressed_t ili9341_touch_pressed(ili9341_t *dev,
-    ili9341_two_dimension_t *pos, uint8_t *pressure);
-
-void ili9341_set_touch_pressed_begin(ili9341_t *dev, ili9341_touch_callback_t callback);
-void ili9341_set_touch_pressed_end(ili9341_t *dev, ili9341_touch_callback_t callback);
+ili9341_touch_pressed_t ili9341_touch_pressed(
+    ili9341_t *dev, ili9341_point_t *pos, uint8_t *pressure);
+void ili9341_set_command_pressed(ili9341_t *dev,
+    ili9341_command_mask_t command, ili9341_command_callback_t callback);
 
 void ili9341_add_source_capability(
-    ili9341_t *dev, uint8_t pdo_number,
-    uint16_t voltage_mV, uint16_t current_mA, uint16_t current_max_mA,
-    ili9341_button_callback_t touch_down, ili9341_button_callback_t touch_up);
+    ili9341_t *dev, uint8_t number, uint16_t voltage_mV, uint16_t current_mA);
+void ili9341_init_request_source_capabilities(ili9341_t *dev);
 void ili9341_remove_all_source_capabilities(ili9341_t *dev);
+
+void ili9341_set_sink_capability(
+    ili9341_t *dev, uint8_t number, uint16_t voltage_mV, uint16_t current_mA);
+void ili9341_set_sink_capability_requested(
+    ili9341_t *dev, uint8_t number, uint16_t voltage_mV, uint16_t current_mA);
+void ili9341_remove_all_sink_capabilities(ili9341_t *dev);
+void ili9341_redraw_all_sink_capabilities(ili9341_t *dev, uint8_t cable);
 
 #ifdef __cplusplus
 }
