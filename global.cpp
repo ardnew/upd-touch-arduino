@@ -135,6 +135,10 @@ void init_peripherals()
   Wire.setClock(__STUSB4500_I2C_CLOCK_FREQUENCY__);
 
   // --
+  // INA260 (voltage/current sensor)
+  vmon = ina260_new(new Adafruit_INA260());
+
+  // --
   // STUSB4500 (zoinks!)
   usbpd = stusb4500_device_new(
       &Wire, __STUSB4500_I2C_SLAVE_BASE_ADDR__, __GPIO_USBPD_RST_PIN__);
@@ -153,17 +157,13 @@ void init_peripherals()
       isoLeft,
       __GPIO_TOUCH_IRQ_PIN__);
 
-  ili9341_set_command_pressed(screen, icTogglePower, toggle_power_pressed);
+  //ili9341_set_command_pressed(screen, icTogglePower, toggle_power_pressed);
   ili9341_set_command_pressed(screen, icCyclePower, cycle_power_pressed);
   ili9341_set_command_pressed(screen, icSetPower, set_power_pressed);
-  ili9341_set_command_pressed(screen, icGetSourceCap, get_source_cap_pressed);
+  //ili9341_set_command_pressed(screen, icGetSourceCap, get_source_cap_pressed);
 
   ili9341_draw_template(screen);
   ili9341_init_request_source_capabilities(screen);
-
-  // --
-  // INA260 (voltage/current sensor)
-  vmon = ina260_new(new Adafruit_INA260());
   ili9341_set_voltage_monitor(screen, vmon);
 
   info(ilInfo, "initialization complete");
@@ -192,6 +192,7 @@ void init_peripherals()
 
 void info(info_level_t level, const char *fmt, ...)
 {
+#if 0
   static char buff[__INFO_LENGTH_MAX__] = { 0 };
 
   va_list arg;
@@ -201,6 +202,7 @@ void info(info_level_t level, const char *fmt, ...)
 
   Serial.print(DEBUG_LEVEL_PREFIX[level]);
   Serial.println(buff);
+#endif
 }
 
 // -------------------------------------------------------- private functions --
@@ -286,8 +288,10 @@ void cable_attached(stusb4500_device_t *usb)
 {
   info(ilInfo, "cable attached");
 
-  ina260_init(vmon);
-  ili9341_set_voltage_monitor(screen, vmon);
+  if (!ina260_ready(vmon)) {
+    ina260_reset(vmon);
+    ili9341_set_voltage_monitor(screen, vmon);
+  }
 
   ili9341_init_request_source_capabilities(screen);
   delay(200);

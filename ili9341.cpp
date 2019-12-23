@@ -30,6 +30,7 @@
 #define __ILI9341_COLOR_CMD_ACTIVE__         ILI9341_GREEN
 #define __ILI9341_COLOR_VBUS_PROMPT__        ILI9341_ORANGE
 #define __ILI9341_COLOR_GROUP_CAPTION__      ILI9341_GREEN
+#define __ILI9341_COLOR_SYSTIME__            ILI9341_WHITE
 
 #define __ILI9341_COLOR_SNK_LABEL__          ILI9341_WHITE
 #define __ILI9341_COLOR_SNK_VALUE__          ILI9341_WHITE
@@ -80,6 +81,8 @@
 
 #define __ILI9341_SRC_CAP_REQUEST_TIMEOUT_MS__ 3000
 
+#define __ILI9341_SYSTICK_DRAW_REFRESH_MS__     200
+
 // ----------------------------------------------------------- private macros --
 
 /* nothing */
@@ -117,6 +120,8 @@ struct ili9341
   ili9341_size_t         screen_size;
 
   ina260_sample_t current_vbus;
+
+  uint32_t last_tick_draw;
 
   uint16_t bg_color;
 
@@ -230,6 +235,8 @@ ili9341_t *ili9341_new(
       dev->screen_size = ili9341_screen_size(orientation);
 
       dev->current_vbus = INA260_SAMPLE_INVALID;
+
+      dev->last_tick_draw = 0U;
 
       dev->bg_color = __ILI9341_COLOR_BACKGROUND__;
 
@@ -357,9 +364,7 @@ void ili9341_draw_template(ili9341_t *dev)
       },
       (ili9341_size_t){
         __ILI9341_SNK_PDO_DEPTH_PX__,
-        (uint16_t)(dev->cmd_bar_pos.y -
-          (dev->src_cap_frame.origin.y + dev->src_cap_frame.size.height +
-          __ILI9341_MARGIN_PX__) - 3U * __ILI9341_MARGIN_PX__),
+        (uint16_t)(3.5F * dev->tft->fontCapHeight()),
       }
   };
 
@@ -399,8 +404,11 @@ void ili9341_draw(ili9341_t *dev)
   if (NULL == dev)
     { return; }
 
-  ili9341_point_t position;
+  static ili9341_point_t position;
   uint8_t pressure;
+  uint32_t curr_time = millis();
+
+  position = POINT_INVALID;
 
   // read the touch screen only one time per draw cycle. re-use the results as
   // arguments to all subroutines.
@@ -409,18 +417,22 @@ void ili9341_draw(ili9341_t *dev)
 
   if (itpNotPressed == pressed) {
     if (__ILI9341_PDO_NUMBER_INVALID__ != dev->sel_src_cap_pdo) {
-      if (dev->act_src_cap_pdo == dev->sel_src_cap_pdo)
-        { dev->act_src_cap_pdo = __ILI9341_PDO_NUMBER_INVALID__; }
-      else
-        { dev->act_src_cap_pdo = dev->sel_src_cap_pdo; }
+      if (dev->act_src_cap_pdo == dev->sel_src_cap_pdo) {
+        dev->act_src_cap_pdo = __ILI9341_PDO_NUMBER_INVALID__;
+        info(ilInfo, "clearing active");
+      }
+      else {
+        dev->act_src_cap_pdo = dev->sel_src_cap_pdo;
+        info(ilInfo, "setting active");
+      }
     }
     if (0U != dev->cmd_sel) {
       switch (dev->cmd_sel) {
-        case icTogglePower:
-          if (NULL != dev->toggle_power_pressed) {
-            dev->toggle_power_pressed(dev, NULL);
-          }
-          break;
+        //case icTogglePower:
+        //  if (NULL != dev->toggle_power_pressed) {
+        //    dev->toggle_power_pressed(dev, NULL);
+        //  }
+        //  break;
         case icCyclePower:
           if (NULL != dev->cycle_power_pressed) {
             dev->cycle_power_pressed(dev, NULL);
@@ -435,11 +447,11 @@ void ili9341_draw(ili9341_t *dev)
             }
           }
           break;
-        case icGetSourceCap:
-          if (NULL != dev->get_source_cap_pressed) {
-            dev->get_source_cap_pressed(dev, NULL);
-          }
-          break;
+        //case icGetSourceCap:
+        //  if (NULL != dev->get_source_cap_pressed) {
+        //    dev->get_source_cap_pressed(dev, NULL);
+        //  }
+        //  break;
       }
       info(ilInfo, "send command: 0x%X", dev->cmd_sel);
     }
@@ -450,6 +462,32 @@ void ili9341_draw(ili9341_t *dev)
     if (ina260_sample(dev->vmon, &(dev->current_vbus)))
       { dev->vbus_mon_pos = ili9341_draw_vbus(dev, dev->vbus_mon_pos); }
   }
+
+
+  // system timer
+  if (curr_time - dev->last_tick_draw > __ILI9341_SYSTICK_DRAW_REFRESH_MS__) {
+    dev->tft->setFont(DroidSans_8);
+    dev->tft->setTextSize(1);
+    dev->tft->setTextColor(__ILI9341_COLOR_SYSTIME__);
+
+#define TIME_BUF_SZ 32
+    static char time_str[TIME_BUF_SZ] = { '\0' };
+    snprintf(time_str, TIME_BUF_SZ, "%lu", millis());
+
+    uint16_t tw = dev->tft->measureTextWidth(time_str);
+    uint16_t th = dev->tft->measureTextHeight(time_str);
+    uint16_t tx = (uint16_t)(dev->snk_pdo_frame.origin.x +
+        ((dev->snk_pdo_frame.size.width - tw) / 2.0F + 0.5F));
+    uint16_t ty = (uint16_t)(dev->snk_pdo_frame.origin.y +
+        dev->snk_pdo_frame.size.height +
+        dev->tft->fontCapHeight());
+
+    dev->tft->fillRect(tx, ty, tw, th, __ILI9341_COLOR_BACKGROUND__);
+    dev->tft->setCursor(tx, ty);
+    dev->tft->printf("%s",  time_str);
+    dev->last_tick_draw = curr_time;
+  }
+
 
   dev->sel_src_cap_pdo = ili9341_containing_source_capability(dev, position);
   dev->src_cap_frame = ili9341_draw_source_capabilities(
@@ -465,6 +503,7 @@ ili9341_touch_pressed_t ili9341_touch_pressed(
   if (dev->touch->tirqTouched()) {
     if (dev->touch->touched()) {
       dev->touch->readData(&(position->x), &(position->y), pressure);
+      //delay(100);
       return itpPressed;
     }
   }
@@ -507,18 +546,18 @@ void ili9341_set_command_pressed(ili9341_t *dev,
   if ((NULL == dev) || (NULL == callback))
     { return; }
 
-  if ((command & icTogglePower) > 0) {
-    dev->toggle_power_pressed = callback;
-  }
+  //if ((command & icTogglePower) > 0) {
+  //  dev->toggle_power_pressed = callback;
+  //}
   if ((command & icCyclePower) > 0) {
     dev->cycle_power_pressed = callback;
   }
   if ((command & icSetPower) > 0) {
     dev->set_power_pressed = callback;
   }
-  if ((command & icGetSourceCap) > 0) {
-    dev->get_source_cap_pressed = callback;
-  }
+  //if ((command & icGetSourceCap) > 0) {
+  //  dev->get_source_cap_pressed = callback;
+  //}
 }
 
 void ili9341_add_source_capability(
@@ -1089,7 +1128,7 @@ static void ili9341_draw_sink_capabilities(ili9341_t *dev,
   }
 
   if ((pdo_count > 0U) && (cable > 0U)) {
-    top += (uint16_t)(dev->tft->fontCapHeight() / 2.0F + 0.5F) +
+    top += (uint16_t)(dev->tft->fontCapHeight() / 4.0F + 0.5F) +
         __ILI9341_MARGIN_PX__;
     dev->tft->drawFastHLine(
       snk_frm.origin.x + (uint16_t)(snk_frm.size.width / 4.0F + 0.5F),
@@ -1097,7 +1136,7 @@ static void ili9341_draw_sink_capabilities(ili9341_t *dev,
       (uint16_t)(snk_frm.size.width / 2.0F + 0.5F),
       __ILI9341_COLOR_DOCK_BORDER__
     );
-    top += dev->tft->fontCapHeight() + __ILI9341_MARGIN_PX__;
+    top += dev->tft->fontCapHeight() / 4.0F + __ILI9341_MARGIN_PX__;
 
     dev->tft->setCursor(label_left, top);
     dev->tft->setTextColor(__ILI9341_COLOR_SNK_LABEL__);
@@ -1151,21 +1190,40 @@ static ili9341_point_t ili9341_draw_vbus(ili9341_t *dev,
   if (NULL == dev)
     { return POINT_INVALID; }
 
-#define BUF_SZ 32
-
+#define BUF_SZ 16
   static char voltage_buf[BUF_SZ] = { '\0' };
   static char current_buf[BUF_SZ] = { '\0' };
 
   int32_t voltage = dev->current_vbus.voltage_mV;
   int32_t current = dev->current_vbus.current_mA;
 
-  //uint32_t voltage_abs = abs(voltage);
-  //uint32_t current_abs = abs(current);
+  uint32_t voltage_abs = abs(voltage);
+  uint32_t current_abs = abs(current);
 
-  current /= 10U;
+  //current /= 10U;
 
-  snprintf(voltage_buf, BUF_SZ, "%4.1fV", (float)voltage / 1000.0);
-  snprintf(current_buf, BUF_SZ, "%.2gA", (float)current / 100.0);
+  //ina260_fmt_voltage(dev->vmon, voltage, &voltage_buf, BUF_SZ);
+  //ina260_fmt_current(dev->vmon, current, &current_buf, BUF_SZ);
+
+  //info(ilInfo, "v=[%s]", voltage_buf);
+  //info(ilInfo, "c=[%s]", current_buf);
+
+  if (voltage_abs < 1000U) {
+    snprintf(voltage_buf, BUF_SZ, "%lumV", voltage_abs);
+  }
+  else {
+    snprintf(voltage_buf, BUF_SZ, "%.1fV", (float)voltage_abs / 1000.0);
+  }
+
+  if (current_abs < 1000U) {
+    snprintf(current_buf, BUF_SZ, "%lumA", current_abs);
+  }
+  else {
+    snprintf(current_buf, BUF_SZ, "%.1fA", (float)current_abs / 1000.0);
+  }
+
+  //info(ilInfo, "v=[%s]", voltage_buf);
+  //info(ilInfo, "c=[%s]", current_buf);
 
   dev->tft->setFont(DroidSansMono_18);
   dev->tft->setTextSize(1);

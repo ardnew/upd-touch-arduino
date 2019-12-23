@@ -69,9 +69,14 @@ extern "C" {
 ina260_t *ina260_new(Adafruit_INA260 *ina260);
 
 bool ina260_init(ina260_t *dev);
+bool ina260_reset(ina260_t *dev);
+bool ina260_ready(ina260_t *dev);
 
 int32_t ina260_voltage(ina260_t *dev);
 int32_t ina260_current(ina260_t *dev);
+
+//void ina260_fmt_voltage(ina260_t *dev, int32_t voltage_mV, char *str[], size_t len);
+//void ina260_fmt_current(ina260_t *dev, int32_t current_mA, char *str[], size_t len);
 
 bool ina260_sample(ina260_t *dev, ina260_sample_t *sample);
 
