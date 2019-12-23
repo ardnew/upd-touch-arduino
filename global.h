@@ -16,7 +16,7 @@
 
 // ------------------------------------------------------------------ defines --
 
-#define __WAIT_FOR_SERIAL__
+//#define __WAIT_FOR_SERIAL__
 
 #define FLOAT_ABSTOL 5.0e-6
 

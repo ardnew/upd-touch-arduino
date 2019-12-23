@@ -68,6 +68,8 @@ extern "C" {
 
 ina260_t *ina260_new(Adafruit_INA260 *ina260);
 
+bool ina260_init(ina260_t *dev);
+
 int32_t ina260_voltage(ina260_t *dev);
 int32_t ina260_current(ina260_t *dev);
 

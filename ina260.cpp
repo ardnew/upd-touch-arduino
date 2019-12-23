@@ -57,14 +57,30 @@ ina260_t *ina260_new(Adafruit_INA260 *ina260)
 
   dev->ina260 = ina260;
 
+  (void)ina260_init(dev);
+
+  return dev;
+}
+
+bool ina260_init(ina260_t *dev)
+{
+  if (NULL == dev)
+    { return false; }
+
+  if (NULL == dev->ina260)
+    { dev->ina260 = new Adafruit_INA260(); }
+
+  if (NULL == dev->ina260)
+    { return false; }
+
   if (!(dev->ina260->begin())) {
     info(ilError, "failed: INA260 begin()");
-    return NULL;
+    return false;
   }
 
   dev->ina260->setMode(INA260_MODE_CONTINUOUS);
 
-  return dev;
+  return true;
 }
 
 int32_t ina260_voltage(ina260_t *dev)

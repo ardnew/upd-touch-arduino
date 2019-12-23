@@ -173,9 +173,9 @@ ili9341_sink_capability_t const SNK_PDO_INVALID =
 // -------------------------------------------------------- private variables --
 
 static char const COMMAND_CHAR[icCOUNT] = { // from font_AwesomeF000.h
-    0x11, // icTogglePower
+    //0x11, // icTogglePower
     0x21, // icCyclePower
-    0x19, // icGetSourceCap
+    //0x19, // icGetSourceCap
     0x46  // icSetPower
 };
 
@@ -213,7 +213,6 @@ static uint16_t ili9341_voltage_color(int32_t voltage);
 ili9341_t *ili9341_new(
     ILI9341_t3            *tft,
     XPT2046_Calibrated    *touch,
-    ina260_t              *vmon,
     ili9341_orientation_t  orientation,
     uint16_t touch_interrupt_pin)
 {
@@ -225,7 +224,7 @@ ili9341_t *ili9341_new(
 
       dev->tft   = tft;
       dev->touch = touch;
-      dev->vmon  = vmon;
+      dev->vmon  = NULL;
 
       dev->orientation = orientation;
       dev->screen_size = ili9341_screen_size(orientation);
@@ -423,9 +422,7 @@ void ili9341_draw(ili9341_t *dev)
           }
           break;
         case icCyclePower:
-          info(ilInfo, "cycle?");
           if (NULL != dev->cycle_power_pressed) {
-            info(ilInfo, "cycle!");
             dev->cycle_power_pressed(dev, NULL);
           }
           break;
@@ -449,8 +446,10 @@ void ili9341_draw(ili9341_t *dev)
   }
 
   // the VBUS monitor
-  if (ina260_sample(dev->vmon, &(dev->current_vbus)))
-    { dev->vbus_mon_pos = ili9341_draw_vbus(dev, dev->vbus_mon_pos); }
+  if (NULL != dev->vmon) {
+    if (ina260_sample(dev->vmon, &(dev->current_vbus)))
+      { dev->vbus_mon_pos = ili9341_draw_vbus(dev, dev->vbus_mon_pos); }
+  }
 
   dev->sel_src_cap_pdo = ili9341_containing_source_capability(dev, position);
   dev->src_cap_frame = ili9341_draw_source_capabilities(
@@ -633,6 +632,14 @@ void ili9341_redraw_all_sink_capabilities(ili9341_t *dev, uint8_t cable)
 
   if (ili9341_frame_valid(&(dev->snk_pdo_frame)))
     { ili9341_draw_sink_capabilities(dev, dev->snk_pdo_frame, cable); }
+}
+
+void ili9341_set_voltage_monitor(ili9341_t *dev, ina260_t *vmon)
+{
+  if ((NULL == dev) || (NULL == vmon))
+    { return; }
+
+  dev->vmon = vmon;
 }
 
 // -------------------------------------------------------- private functions --

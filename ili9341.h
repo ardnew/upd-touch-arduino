@@ -132,11 +132,11 @@ typedef uint32_t ili9341_command_mask_t;
 typedef enum
 {
   icNONE         = 0U,
-  icTogglePower  = 1 << 0U,
-  icCyclePower   = 1 << 1U,
-  icGetSourceCap = 1 << 2U,
-  icSetPower     = 1 << 3U,
-  icCOUNT        =      4U
+  //icTogglePower  = 1 << 0U,
+  icCyclePower   = 1 << 0U,
+  //icGetSourceCap = 1 << 2U,
+  icSetPower     = 1 << 1U,
+  icCOUNT        =      2U
 }
 ili9341_command_t;
 
@@ -157,7 +157,6 @@ extern "C" {
 ili9341_t *ili9341_new(
     ILI9341_t3            *tft,
     XPT2046_Calibrated    *touch,
-    ina260_t              *vmon,
     ili9341_orientation_t  orientation,
     uint16_t touch_interrupt_pin);
 
@@ -196,6 +195,8 @@ void ili9341_set_sink_capability_requested(
     ili9341_t *dev, uint8_t number, uint16_t voltage_mV, uint16_t current_mA);
 void ili9341_remove_all_sink_capabilities(ili9341_t *dev);
 void ili9341_redraw_all_sink_capabilities(ili9341_t *dev, uint8_t cable);
+
+void ili9341_set_voltage_monitor(ili9341_t *dev, ina260_t *vmon);
 
 #ifdef __cplusplus
 }

@@ -135,8 +135,13 @@ void init_peripherals()
   Wire.setClock(__STUSB4500_I2C_CLOCK_FREQUENCY__);
 
   // --
-  // INA260 (voltage/current sensor)
-  vmon = ina260_new(new Adafruit_INA260());
+  // STUSB4500 (zoinks!)
+  usbpd = stusb4500_device_new(
+      &Wire, __STUSB4500_I2C_SLAVE_BASE_ADDR__, __GPIO_USBPD_RST_PIN__);
+
+  stusb4500_set_cable_attached(usbpd, cable_attached);
+  stusb4500_set_cable_detached(usbpd, cable_detached);
+  stusb4500_set_source_capabilities_received(usbpd, capabilities_received);
 
   // --
   // ILI9341 (TFT touch screen)
@@ -145,7 +150,6 @@ void init_peripherals()
           __GPIO_TFT_CS_PIN__, __GPIO_TFT_DC_PIN__),
       new XPT2046_Calibrated(
           __GPIO_TOUCH_CS_PIN__, __GPIO_TOUCH_IRQ_PIN__),
-      vmon,
       isoLeft,
       __GPIO_TOUCH_IRQ_PIN__);
 
@@ -158,13 +162,9 @@ void init_peripherals()
   ili9341_init_request_source_capabilities(screen);
 
   // --
-  // STUSB4500 (zoinks!)
-  usbpd = stusb4500_device_new(
-      &Wire, __STUSB4500_I2C_SLAVE_BASE_ADDR__, __GPIO_USBPD_RST_PIN__);
-
-  stusb4500_set_cable_attached(usbpd, cable_attached);
-  stusb4500_set_cable_detached(usbpd, cable_detached);
-  stusb4500_set_source_capabilities_received(usbpd, capabilities_received);
+  // INA260 (voltage/current sensor)
+  vmon = ina260_new(new Adafruit_INA260());
+  ili9341_set_voltage_monitor(screen, vmon);
 
   info(ilInfo, "initialization complete");
 
@@ -285,6 +285,10 @@ void get_source_cap_pressed(ili9341_t *tft, void *data)
 void cable_attached(stusb4500_device_t *usb)
 {
   info(ilInfo, "cable attached");
+
+  ina260_init(vmon);
+  ili9341_set_voltage_monitor(screen, vmon);
+
   ili9341_init_request_source_capabilities(screen);
   delay(200);
   stusb4500_select_power_usb_default(usb);
